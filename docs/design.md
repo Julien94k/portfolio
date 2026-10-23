@@ -57,8 +57,11 @@ Contrastes visés (AA) : encre/papier > 12:1, crayon/papier > 6:1, sapin/papier 
 ## Mise en page
 
 - Alignement à gauche partout. Pas de hero centré.
-- Sur grand écran, une colonne étroite à gauche pour les dates et les intitulés de section, comme un CV.
-  Sur mobile, elle passe au-dessus du contenu.
+- Accueil en une seule colonne de lecture, dans cet ordre : intro « preuve d'abord », projets avec
+  leur capture, petits outils, contact. Les titres de section sont des phrases (« Ce que j'ai construit »).
+- La page `/parcours` garde la mise en page CV : intitulés dans une colonne étroite à gauche,
+  contenu à droite. Sur mobile, l'intitulé passe au-dessus.
+- Projets : texte à gauche, capture à droite. Une capture de téléphone reste étroite.
 - Les sections sont séparées par un filet, pas par des cartes.
 - Les liens sont soulignés. Le soulignement s'épaissit au survol.
 - Navigation : une ligne de liens en haut, qui reste en place au défilement.

@@ -1,12 +1,16 @@
-/* Accueil */
+/* Accueil : une seule colonne de lecture, les projets en premier après l'intro. */
+
+.home {
+  max-width: 50rem;
+}
 
 .intro {
-  padding: 4.5rem 0 3.5rem;
-  max-width: 42rem;
+  padding: 4.5rem 0 3rem;
+  max-width: 40rem;
 }
 
 .intro h1 {
-  font-size: clamp(2.3rem, 6vw, 3.2rem);
+  font-size: clamp(2.1rem, 5.5vw, 3rem);
   letter-spacing: -0.01em;
 }
 
@@ -22,6 +26,139 @@
   flex-wrap: wrap;
   gap: 0.5rem 1.5rem;
   margin-top: 1.75rem;
+}
+
+.block {
+  padding: 3.25rem 0;
+  border-top: 1px solid var(--filet);
+}
+
+.block > h2 {
+  font-size: 1.65rem;
+  margin-bottom: 1.5rem;
+}
+
+.block > p {
+  max-width: var(--mesure);
+}
+
+.projects {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* Texte à gauche, capture à droite. Une capture de téléphone reste étroite. */
+.project {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 1.25rem 2.5rem;
+  padding-bottom: 2.25rem;
+  margin-bottom: 2.25rem;
+  border-bottom: 1px solid var(--filet);
+}
+
+.project:last-child {
+  border-bottom: 0;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+.project-screen {
+  grid-template-columns: minmax(0, 1fr) minmax(0, 20rem);
+}
+
+.project-phone {
+  grid-template-columns: minmax(0, 1fr) 9.5rem;
+}
+
+.project-image {
+  grid-column: 2;
+  grid-row: 1;
+  align-self: start;
+}
+
+.project-image img {
+  border: 1px solid var(--filet);
+  border-radius: 4px;
+}
+
+.project-phone .project-image img {
+  border-radius: 10px;
+}
+
+.project h3 {
+  font-size: 1.35rem;
+}
+
+.project-text > p {
+  margin-bottom: 0.7rem;
+}
+
+.project-quote {
+  margin: 1rem 0;
+  padding-left: 1rem;
+  border-left: 2px solid var(--sapin);
+  font-family: var(--serif);
+  font-style: italic;
+}
+
+.project-quote p {
+  margin-bottom: 0.3rem;
+}
+
+.project-quote footer {
+  font-family: var(--sans);
+  font-style: normal;
+  font-size: 0.9rem;
+  color: var(--crayon);
+}
+
+.tools {
+  margin: 0 0 2rem;
+  max-width: var(--mesure);
+}
+
+.tools > div {
+  margin-bottom: 1.1rem;
+}
+
+.tools dt {
+  font-weight: 600;
+}
+
+.tools dd {
+  margin: 0.15rem 0 0;
+}
+
+.tool-figure {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin: 0.75rem 0 0;
+}
+
+.tool-figure img {
+  width: 7.5rem;
+  flex: none;
+  border: 1px solid var(--filet);
+  border-radius: 4px;
+}
+
+.tool-figure figcaption {
+  color: var(--crayon);
+  font-size: 0.93rem;
+}
+
+/* Page Parcours : la version CV, en lignes intitulé / contenu. */
+
+.parcours-header {
+  padding: 3.5rem 0 1.5rem;
+  max-width: 42rem;
+}
+
+.parcours-header h1 {
+  font-size: clamp(2rem, 5vw, 2.6rem);
 }
 
 /* Une section = une ligne : intitulé à gauche, contenu à droite, comme sur un CV. */
@@ -48,8 +185,7 @@
   margin-bottom: 0;
 }
 
-.entry h3,
-.project-row h3 {
+.entry h3 {
   font-size: 1.3rem;
 }
 
@@ -72,51 +208,9 @@
   color: var(--crayon);
 }
 
-.project-row {
-  padding: 0 0 1.75rem;
-  margin-bottom: 1.75rem;
-  border-bottom: 1px solid var(--filet);
-}
-
-.project-row p {
-  margin-bottom: 0.6rem;
-}
-
 .stack {
   color: var(--crayon);
   font-size: 0.93rem;
-}
-
-.subheading {
-  font-size: 1.15rem;
-  margin: 2.5rem 0 1rem;
-}
-
-.side-projects {
-  margin: 0;
-}
-
-.side-projects > div {
-  margin-bottom: 1.5rem;
-}
-
-.side-projects dt {
-  font-weight: 600;
-}
-
-.side-projects dd {
-  margin: 0.25rem 0 0;
-}
-
-.side-projects dd p {
-  margin-bottom: 0.4rem;
-}
-
-.note {
-  font-weight: 400;
-  color: var(--crayon);
-  font-size: 0.9rem;
-  margin-left: 0.4rem;
 }
 
 .testimonial {
@@ -152,7 +246,7 @@
 
 .skills > div {
   display: grid;
-  grid-template-columns: 9.5rem minmax(0, 1fr);
+  grid-template-columns: 13rem minmax(0, 1fr);
   gap: 1rem;
   padding: 0.7rem 0;
   border-bottom: 1px solid var(--filet);
@@ -251,6 +345,11 @@
 .case-image img {
   border: 1px solid var(--filet);
   border-radius: 4px;
+}
+
+.case-image-phone img {
+  width: 16rem;
+  border-radius: 12px;
 }
 
 .case-section h2 {
@@ -365,6 +464,26 @@
 @media (max-width: 760px) {
   .intro {
     padding: 3rem 0 2.5rem;
+  }
+
+  /* Sur mobile, la capture passe sous le texte ; celle d'un téléphone reste étroite. */
+  .project-screen,
+  .project-phone {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .project-image {
+    grid-column: 1;
+    grid-row: 2;
+  }
+
+  .project-phone .project-image img {
+    width: 11rem;
+  }
+
+  .tool-figure {
+    flex-direction: column;
+    align-items: flex-start;
   }
 
   .row {

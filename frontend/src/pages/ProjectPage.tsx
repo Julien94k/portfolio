@@ -45,7 +45,7 @@ export function ProjectPage({ project }: { project: Project }) {
       </header>
 
       {project.image && (
-        <figure className="case-image">
+        <figure className={`case-image case-image-${project.image.kind}`}>
           <img
             src={project.image.src}
             alt={project.image.alt}
@@ -63,6 +63,23 @@ export function ProjectPage({ project }: { project: Project }) {
           <Blocks blocks={section.blocks} />
         </section>
       ))}
+
+      {project.testimonial && (
+        <section className="case-section">
+          <h2>Ce qu’en dit ma tech lead</h2>
+          <figure className="testimonial">
+            <blockquote>
+              {project.testimonial.quote.map((paragraph) => (
+                <p key={paragraph}>{paragraph}</p>
+              ))}
+            </blockquote>
+            <figcaption>
+              <strong>{project.testimonial.author}</strong>, {project.testimonial.role}.
+              <span className="testimonial-context">{project.testimonial.context}.</span>
+            </figcaption>
+          </figure>
+        </section>
+      )}
 
       <nav className="case-next" aria-label="Projet suivant">
         <p>

@@ -123,3 +123,37 @@ Raspberry Pi 5 posé chez moi ») et chaque étude de cas raconte un problème r
       Published application. `julienhome.com` puis `www.julienhome.com` → `http://127.0.0.1:8094`
       (pas `localhost` : cloudflared le résout en IPv6, nginx n'écoute qu'en IPv4)
 - [ ] Vérification HTTPS publique, en-têtes, formulaire de contact de bout en bout
+
+---
+
+# Version 2 : un portfolio, pas un CV
+
+Retour de Julien après la mise en ligne : le site est impersonnel, on dirait un CV. Recherche faite
+sur ce qui rend un portfolio de développeur efficace, puis appliquée ici.
+
+## Ce que dit la recherche
+
+| Recommandation | Source |
+|---|---|
+| Un recruteur décide en quelques secondes : les projets en premier, pas de longue intro | Scrimba ; slategit |
+| Bio « preuve d'abord » de 3 à 5 phrases : ce que je construis, un résultat vérifiable, ce que je cherche. Pas d'adjectifs | slategit |
+| 3 à 5 projets, chacun montrant autre chose, dont au moins 2 où l'on a tout décidé, et un qui résout un vrai problème | Scrimba ; Codecademy |
+| Chaque projet : capture d'écran, démo et code si possible, décisions expliquées | Scrimba |
+| Études de cas : problème, approche, difficultés, résultat, ce qu'on referait autrement | Scrimba |
+| Compétences avec contexte (« où je m'en suis servi »), jamais de barres ni de liste brute | Scrimba ; slategit |
+| De la personnalité : projets passion, anecdotes, valeurs, sans qu'elle cache le contenu recruteur | Design Diaries ; Elementor |
+| Témoignage placé dans le projet concerné, plus crédible qu'isolé | Design Diaries |
+| La page « À propos » est la 2ᵉ plus visitée ; la page /now est un bonus, pas une priorité | Design Diaries ; slategit |
+| Projets qui ressemblent à de vrais problèmes, pas des clones de tutoriels | jobrise ; OpenClassrooms |
+
+## Ce qui change
+
+- [x] Accueil en une colonne, sans la colonne d'intitulés façon CV. Intro « preuve d'abord » avec le fil
+      personnel : je me fabrique les outils qui me manquent
+- [x] Projets en premier, avec captures : Tima, ManGuessr, PianoLearn, JobRadar, ce portfolio
+- [x] Études de cas PianoLearn et JobRadar (sourcées sur leurs README)
+- [x] Section « petits outils » : ClipShare, zip-solver, gamesolver, AI Radar, et ce qui tourne sur le Pi
+- [x] Recommandation de Mathilde Lorrain déplacée dans l'étude de cas Tima, rappel court sur l'accueil
+- [x] Nouvelle page `/parcours` : la version CV (expérience détaillée, compétences avec contexte, formation)
+- [x] Navigation : Projets, Parcours, Contact
+- [ ] **Julien** : une photo de lui (facultatif), et relecture des phrases personnelles

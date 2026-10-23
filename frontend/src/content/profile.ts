@@ -1,14 +1,14 @@
-import type { Education, Experience, SkillGroup, Testimonial } from './types'
+import type { Education, Experience, Skill, Testimonial, Tool } from './types'
 
 export const profile = {
   name: 'Julien Lim',
   role: 'Développeur full-stack Java, Spring Boot et React',
   location: 'Île-de-France',
   intro: [
-    'Je développe des applications web de bout en bout, de la migration de base de données jusqu’à l’écran.',
-    'J’ai passé six mois chez Takima sur Tima, un logiciel de recrutement en production que des recruteurs utilisent chaque jour. J’y ai livré une trentaine de fonctionnalités et de correctifs, dont l’intégration de modèles de langage et la sécurisation de l’API REST.',
+    'J’ai fait mon stage de fin d’études chez Takima : une formation interne, puis Tima, un logiciel de recrutement en production. J’y ai livré une trentaine de fonctionnalités et de correctifs, dont la création automatique de missions à partir des e-mails clients, analysés par un LLM.',
+    'Chez moi, je me fabrique les outils qui me manquent. Je cherche du travail avec un radar d’offres que j’ai écrit, j’apprends le piano avec ma propre appli, et tout ça tourne sur un Raspberry Pi.',
   ],
-  availability: 'Je cherche un CDI en développement full-stack, disponible dès maintenant.',
+  availability: 'Je cherche un CDI en développement full-stack en Île-de-France, disponible dès maintenant.',
   linkedin: 'https://www.linkedin.com/in/lim-julien',
   github: 'https://github.com/Julien94k',
   repository: 'https://github.com/Julien94k/portfolio',
@@ -68,53 +68,87 @@ export const education: Education[] = [
   },
 ]
 
-export const skills: SkillGroup[] = [
+export const skills: Skill[] = [
   {
-    name: 'Back-end',
-    skills: [
-      'Java 21 et 25',
-      'Spring Boot',
-      'Spring Security',
-      'Spring Data JPA',
-      'Hibernate',
-      'Spring AI',
-      'API REST',
-      'OpenAPI',
-      'Flyway',
-      'Maven',
-      'Kafka',
-      'Kotlin',
-    ],
+    name: 'Java et Spring Boot',
+    context:
+      'Quatre mois en production sur Tima (Java 25, Spring Boot 3.5), après la formation Master 3. Mes projets ManGuessr, JobRadar et ce site.',
   },
   {
-    name: 'Front-end',
-    skills: ['React', 'Next.js', 'TypeScript', 'TanStack Query', 'Tailwind CSS', 'Angular', 'RxJS', 'HTML et CSS'],
-  },
-  { name: 'Données', skills: ['PostgreSQL', 'SQL', 'migrations versionnées'] },
-  {
-    name: 'Tests et qualité',
-    skills: ['JUnit 5', 'Mockito', 'Testcontainers', 'SonarQube', 'JaCoCo', 'TDD', 'revue de code'],
+    name: 'Spring Security et Keycloak',
+    context:
+      'Contrôle d’accès objet par objet sur l’API de Tima. Authentification JWT sur ManGuessr. Administration de ce site.',
   },
   {
-    name: 'Livraison',
-    skills: [
-      'Docker',
-      'Docker Compose',
-      'Kubernetes',
-      'Helm',
-      'Argo CD',
-      'GitLab CI',
-      'GitHub Actions',
-      'Keycloak (OAuth2, OpenID Connect)',
-      'Linux',
-    ],
+    name: 'Hibernate, PostgreSQL, Flyway',
+    context: 'Tima, ManGuessr, JobRadar et ce site : schéma versionné, de la migration jusqu’à l’écran.',
+  },
+  {
+    name: 'React et TypeScript',
+    context:
+      'Le front de Tima (Next.js, TanStack Query, Tailwind). ManGuessr, JobRadar, ce site. React Native pour PianoLearn.',
+  },
+  {
+    name: 'Tests',
+    context:
+      'JUnit 5, Mockito et Testcontainers sur Tima, JobRadar et ce site. 263 tests sur ManGuessr. SonarQube et JaCoCo en CI.',
   },
   {
     name: 'LLM en production',
-    skills: ['OpenAI', 'OpenRouter', 'Gemini', 'sorties structurées', 'LangChain'],
+    context:
+      'Spring AI et sorties structurées sur Tima. Notation d’offres par lots dans JobRadar. Assistant Gemini dans PianoLearn.',
   },
-  { name: 'Équipe', skills: ['Scrum', 'Kanban', 'Jira', 'Git'] },
+  {
+    name: 'Docker et intégration continue',
+    context:
+      'GitLab CI chez Takima. Docker Compose et GitHub Actions sur mes projets web, tous déployés sur mon Raspberry Pi.',
+  },
+  {
+    name: 'Kafka, Kubernetes, Helm, Argo CD',
+    context: 'Microservice de notification Kafka sur Tima. Formations Takima pour Kubernetes et GitOps.',
+  },
+  {
+    name: 'Kotlin et Angular',
+    context: 'Formation Master 3 : la même marketplace écrite en Java puis en Kotlin, avec un front Angular.',
+  },
+  { name: 'Méthode', context: 'Scrumban chez Takima : tickets, revue de code, QA, sprints de deux semaines.' },
 ]
+
+export const tools: Tool[] = [
+  {
+    title: 'ClipShare',
+    description:
+      'Pour passer un fichier ou une note de mon téléphone à mon PC sans passer par une messagerie. Une page web sur mon réseau local, mise à jour en direct.',
+    stack: 'Python, Flask, WebSocket',
+  },
+  {
+    title: 'zip-solver',
+    description:
+      'Résout le puzzle Zip de LinkedIn à partir d’une capture d’écran : détection de la grille, des murs et des numéros, puis recherche du chemin.',
+    stack: 'Python, traitement d’image, Android',
+    image: {
+      src: '/images/zip-solver.webp',
+      caption: 'Une grille résolue : le chemin passe par les numéros dans l’ordre, sans traverser les murs.',
+      width: 314,
+      height: 309,
+    },
+  },
+  {
+    title: 'gamesolver',
+    description:
+      'Un bot qui joue à un jeu de type Mahjong à ma place : il lit l’écran, reconstruit le plateau et clique en évitant de perdre.',
+    stack: 'Python, vision par ordinateur',
+  },
+  {
+    title: 'AI Radar',
+    description:
+      'Ma veille sur les modèles d’IA : annonces, prix et performances, avec des sources classées par fiabilité.',
+    stack: 'Python, FastAPI, SQLite',
+  },
+]
+
+export const homelab =
+  'Tout tourne sur un Raspberry Pi 5 chez moi, en Docker Compose : ManGuessr et ce site sont publics, derrière un tunnel Cloudflare. Le reste n’est accessible que depuis mon réseau ou par un VPN WireGuard que j’ai monté pour y accéder de l’extérieur.'
 
 export const languages = 'Français (langue maternelle), anglais (B2).'
 

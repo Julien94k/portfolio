@@ -4,9 +4,8 @@ import { profile } from '../content/profile'
 import { Link } from '../router/router'
 
 const nav = [
-  { href: '/#parcours', label: 'Parcours' },
   { href: '/#projets', label: 'Projets' },
-  { href: '/#competences', label: 'Compétences' },
+  { href: '/parcours', label: 'Parcours' },
   { href: '/#contact', label: 'Contact' },
 ]
 

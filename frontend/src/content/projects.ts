@@ -1,11 +1,14 @@
-import type { Project, SideProject } from './types'
+import { testimonial } from './profile'
+import type { Project } from './types'
 
 export const projects: Project[] = [
   {
     slug: 'tima',
     title: 'Tima, l’outil de recrutement de Takima',
+    summary:
+      'Mon stage de fin d’études, sur un logiciel utilisé chaque jour par des recruteurs : LLM en production, sécurité de l’API, et quelques ratés instructifs.',
     tagline:
-      'Six mois sur un produit en production, utilisé chaque jour par de vrais recruteurs. La question qui m’a suivi tout le stage : comment livrer ce qui compte sans casser ce qui marche ?',
+      'Quatre mois sur un produit en production, utilisé chaque jour par de vrais recruteurs, après deux mois de formation interne. La question qui m’a suivi tout le stage : comment livrer ce qui compte sans casser ce qui marche ?',
     context: 'Stage de fin d’études chez Takima',
     period: 'juin – septembre 2026, après la formation interne',
     role: 'Développeur full-stack dans l’équipe Tima, encadré par une tech lead',
@@ -87,10 +90,13 @@ export const projects: Project[] = [
         ],
       },
     ],
+    testimonial,
   },
   {
     slug: 'manguessr',
     title: 'ManGuessr',
+    summary:
+      'Un jeu de devinettes anime et manga, avec un défi par jour. Le plus difficile : empêcher de tricher avec les outils du navigateur.',
     tagline:
       'Un jeu de devinettes sur l’univers anime et manga, avec un défi par jour, le même pour tout le monde. En ligne, et servi depuis mon Raspberry Pi.',
     context: 'Projet personnel',
@@ -117,6 +123,7 @@ export const projects: Project[] = [
       alt: 'Page d’accueil de ManGuessr : le défi du jour, avec la liste des modes de jeu Anime et Manga.',
       width: 1440,
       height: 900,
+      kind: 'screen',
     },
     sections: [
       {
@@ -159,8 +166,102 @@ export const projects: Project[] = [
     ],
   },
   {
+    slug: 'pianolearn',
+    title: 'PianoLearn',
+    summary:
+      'J’apprends le piano sur un Yamaha P-145. J’ai écrit l’appli qui va avec : le téléphone écoute le vrai clavier branché en USB.',
+    tagline:
+      'Une appli Android pour apprendre le piano sur un vrai clavier : notes qui tombent, partition, cours, et un serveur sur mon Raspberry Pi qui transforme un enregistrement en morceau jouable.',
+    context: 'Projet personnel',
+    period: '2026',
+    role: 'Seul',
+    stack: ['React Native', 'Expo', 'TypeScript', 'Kotlin (module natif)', 'Python', 'Gemini'],
+    links: [],
+    image: {
+      src: '/images/pianolearn-lecteur.webp',
+      alt: 'Le lecteur de PianoLearn sur « Lettre à Élise » : partition en haut, notes qui tombent vers un clavier, réglages main droite, main gauche, deux mains.',
+      width: 640,
+      height: 1360,
+      kind: 'phone',
+    },
+    sections: [
+      {
+        heading: 'Ce que fait l’appli',
+        blocks: [
+          'Le piano se branche au téléphone par un câble USB. En jeu libre, les notes jouées s’affichent en direct : nom, portée, accord reconnu, pédale. Le lecteur ouvre un fichier MIDI avec des notes qui tombent et la partition, de 25 à 150 % de la vitesse, en boucle sur un passage, main droite, main gauche ou les deux, avec un mode qui attend la bonne note.',
+          'À côté, quatorze modules de cours, du nom des notes jusqu’aux accords et aux rythmes avancés, avec des exercices joués sur le vrai clavier et des révisions espacées dans le temps.',
+        ],
+      },
+      {
+        heading: 'Une seule horloge',
+        blocks: [
+          'Le piège d’une appli de piano, c’est le décalage entre ce qu’on entend et ce qu’on voit. Comme les applis dédiées, PianoLearn n’a qu’une horloge, celle du séquenceur. Sur Android, il tourne dans le fil audio natif, écrit en Kotlin : il joue les notes au moment exact où elles doivent être entendues et donne la position réelle, que l’écran affiche.',
+          'Le JavaScript ne s’occupe que des règles, comme le mode attente, la boucle ou le score. La même logique existe en TypeScript pour l’aperçu web et les tests, et les deux doivent rester identiques.',
+          'Ce module natif a une conséquence : l’appli ne tourne pas dans Expo Go, il faut construire un APK. Le SDK Android ne s’installe pas sur un Raspberry Pi, alors la compilation passe par le service cloud d’Expo.',
+        ],
+      },
+      {
+        heading: 'Transformer un enregistrement en morceau',
+        blocks: [
+          'On peut envoyer un enregistrement de piano, en MP3, WAV, OGG ou FLAC. Un petit serveur sur mon Raspberry Pi le transcrit en notes avec Basic Pitch, un modèle open source de Spotify, en quelques secondes. Le serveur refuse toute adresse extérieure au réseau local.',
+          'Un assistant Gemini répond aux questions de théorie et cherche des morceaux sur des catalogues de fichiers MIDI, puis les adapte au niveau voulu : mélodie seule pour débuter, puis basse, puis seconde voix. Chacun utilise sa propre clé, stockée seulement sur le téléphone.',
+        ],
+      },
+    ],
+  },
+  {
+    slug: 'jobradar',
+    title: 'JobRadar',
+    summary:
+      'Mon outil de recherche d’emploi : il collecte les offres, les note selon mon profil avec un LLM, et me prévient des meilleures sur mon téléphone.',
+    tagline:
+      'Une veille d’offres d’emploi auto-hébergée. Elle collecte plusieurs sources, retire les doublons, note chaque offre selon mon profil et suit mes candidatures jusqu’à la réponse.',
+    context: 'Projet personnel',
+    period: '2026',
+    role: 'Seul',
+    stack: [
+      'Java 21',
+      'Spring Boot 3.4',
+      'Hibernate',
+      'PostgreSQL',
+      'Flyway',
+      'React',
+      'TypeScript',
+      'TanStack Query',
+      'Testcontainers',
+      'Docker Compose',
+    ],
+    links: [],
+    sections: [
+      {
+        heading: 'Le problème',
+        blocks: [
+          'Chercher un emploi, c’est relire chaque jour les mêmes annonces sur plusieurs sites, souvent publiées en double. JobRadar interroge les API officielles de France Travail, Adzuna et Jooble selon un calendrier, et ne garde qu’une fois une annonce publiée à plusieurs endroits. Pour les reconnaître, il compare une empreinte de l’entreprise et de l’intitulé, normalisés : accents, mentions H/F, forme juridique.',
+          'Mes candidatures se suivent ensuite dans un tableau par étapes, avec notes, dates et rappels de relance.',
+        ],
+      },
+      {
+        heading: 'Un LLM, mais pas pour tout',
+        blocks: [
+          'Envoyer chaque offre à un modèle de langage coûterait cher et irait vite au bout des quotas gratuits. La notation se fait donc en deux temps. D’abord des mots-clés pondérés, gratuits et instantanés : le titre compte double, et une annonce qui exige trop d’années d’expérience est pénalisée. Ensuite, seules les offres prometteuses partent au modèle, par lots de dix, qui renvoie une note, un résumé, des points forts et des points faibles.',
+          'Avec un quota gratuit de vingt requêtes par jour, cela couvre deux cents offres. Quand le quota est épuisé, tout s’arrête proprement, et les offres restantes sont notées au passage suivant.',
+          'Le client parle le format d’API d’OpenAI : Gemini, OpenRouter ou OpenAI s’échangent par configuration, comme sur Tima. Les réponses sont validées et bornées, et une saturation du fournisseur déclenche des relances espacées.',
+        ],
+      },
+      {
+        heading: 'Une source en panne n’arrête pas les autres',
+        blocks: [
+          'Chaque source implémente la même interface. Une source sans clé est simplement désactivée, une source en erreur n’empêche jamais les autres de tourner. Les appels aux API externes sont testés avec des réponses simulées, et la base avec un vrai PostgreSQL lancé par Testcontainers.',
+          'Les meilleures offres déclenchent une notification ntfy sur mon téléphone, avec le lien direct. C’est le même mécanisme qui me prévient quand quelqu’un écrit depuis ce site.',
+        ],
+      },
+    ],
+  },
+  {
     slug: 'portfolio',
     title: 'Ce portfolio',
+    summary:
+      'Le site que vous lisez. Le serveur ne fait que ce qui a besoin d’un serveur : le reste est du HTML pré-généré.',
     tagline:
       'Un portfolio dans la stack de mon stage, où le serveur ne fait que ce qui a besoin d’un serveur. Auto-hébergé, comme le reste.',
     context: 'Projet personnel',
@@ -212,23 +313,6 @@ export const projects: Project[] = [
         ],
       },
     ],
-  },
-]
-
-export const sideProjects: SideProject[] = [
-  {
-    title: 'JobRadar',
-    description:
-      'Ma veille d’offres d’emploi, auto-hébergée. Elle interroge plusieurs sources, élimine les doublons, note chaque offre selon mon profil (mots-clés, puis analyse par un LLM), me notifie des meilleures et suit mes candidatures.',
-    stack: ['Java 21', 'Spring Boot 3', 'React', 'TypeScript', 'Docker Compose'],
-    note: 'Code privé',
-  },
-  {
-    title: 'PianoLearn',
-    description:
-      'Une application Android pour apprendre le piano sur un vrai clavier branché en USB : notes qui tombent, partition, cours progressifs, et transcription d’un enregistrement en morceau jouable par un serveur sur le Raspberry Pi.',
-    stack: ['React Native', 'Expo', 'TypeScript', 'Python'],
-    note: 'Code privé',
   },
 ]
 

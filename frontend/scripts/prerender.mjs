@@ -24,7 +24,7 @@ const preloads = [/^public-sans-latin-wght-normal-.*\.woff2$/, /^source-serif-4-
   .map((file) => `<link rel="preload" href="/assets/${file}" as="font" type="font/woff2" crossorigin />`)
 if (preloads.length !== 2) throw new Error('Polices à précharger introuvables dans dist/assets')
 
-const routes = ['/', ...projects.map((project) => `/projets/${project.slug}`), '/admin', '/404']
+const routes = ['/', '/parcours', ...projects.map((project) => `/projets/${project.slug}`), '/admin', '/404']
 
 function head(path, meta) {
   const tags = [

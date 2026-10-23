@@ -31,26 +31,33 @@ export type CaseSection = {
 export type Project = {
   slug: string
   title: string
+  /** Une phrase pour l'accueil : le problème que le projet résout. */
+  summary: string
   tagline: string
   context: string
   period: string
   role: string
   stack: string[]
   links: Link[]
-  image?: { src: string; alt: string; width: number; height: number }
+  /** « phone » : capture verticale d'appli mobile, affichée étroite. */
+  image?: { src: string; alt: string; width: number; height: number; kind: 'screen' | 'phone' }
   sections: CaseSection[]
+  /** Recommandation affichée à la fin de l'étude de cas, là où elle a le plus de poids. */
+  testimonial?: Testimonial
 }
 
-export type SideProject = {
+/** Petit outil écrit pour moi, présenté en une ligne. */
+export type Tool = {
   title: string
   description: string
-  stack: string[]
-  note: string
+  stack: string
+  image?: { src: string; caption: string; width: number; height: number }
 }
 
-export type SkillGroup = {
+/** Une compétence et l'endroit où je m'en suis réellement servi. */
+export type Skill = {
   name: string
-  skills: string[]
+  context: string
 }
 
 export type Testimonial = {

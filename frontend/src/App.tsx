@@ -7,6 +7,7 @@ import { metaFor } from './meta'
 import { AdminPage } from './pages/AdminPage'
 import { HomePage } from './pages/HomePage'
 import { NotFoundPage } from './pages/NotFoundPage'
+import { ParcoursPage } from './pages/ParcoursPage'
 import { ProjectPage } from './pages/ProjectPage'
 import { useRouter } from './router/context'
 import { Router } from './router/router'
@@ -24,6 +25,7 @@ function CurrentPage() {
   }, [path])
 
   if (path === '/') return <HomePage />
+  if (path === '/parcours') return <ParcoursPage />
   if (path === '/admin') return <AdminPage />
   const project = path.startsWith('/projets/') ? findProject(path.slice('/projets/'.length)) : undefined
   if (project) return <ProjectPage key={project.slug} project={project} />

@@ -21,7 +21,14 @@ export function metaFor(path: string): PageMeta {
     return {
       title: `${siteName}, développeur full-stack Java et React`,
       description:
-        'Développeur full-stack Java, Spring Boot et React. Six mois chez Takima sur un logiciel de recrutement en production. Je cherche un CDI en Île-de-France.',
+        'Développeur full-stack Java, Spring Boot et React. Stage de six mois chez Takima, sur un logiciel de recrutement en production, et des outils que je me fabrique sur un Raspberry Pi. Je cherche un CDI en Île-de-France.',
+    }
+  }
+  if (path === '/parcours') {
+    return {
+      title: `Parcours · ${siteName}`,
+      description:
+        'Expérience chez Takima, compétences avec le contexte où je m’en suis servi, formation : la version CV de mon portfolio.',
     }
   }
   if (path === '/admin') {
