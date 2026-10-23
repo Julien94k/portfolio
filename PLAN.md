@@ -115,8 +115,8 @@ Raspberry Pi 5 posé chez moi ») et chaque étude de cas raconte un problème r
 - [x] Revue de code et revue sécurité
 
 ### 8. GitHub
-- [ ] Création de `Julien94k/portfolio` (public), CI GitHub Actions (tests, lint, build, images)
-- [ ] Push, URL du site renseignée sur le dépôt
+- [x] Création de `Julien94k/portfolio` (public), CI GitHub Actions (tests, lint, build, images)
+- [x] Push, URL du site renseignée sur le dépôt
 
 ### 9. Mise en ligne
 - [ ] **Action de Julien** : dans le dashboard Cloudflare (Zero Trust → Tunnels → le tunnel du Pi →
