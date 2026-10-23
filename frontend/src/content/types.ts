@@ -41,6 +41,8 @@ export type Project = {
   links: Link[]
   /** « phone » : capture verticale d'appli mobile, affichée étroite. */
   image?: { src: string; alt: string; width: number; height: number; kind: 'screen' | 'phone' }
+  /** Projet sans capture montrable : un schéma dessiné à la place. */
+  illustration?: 'tima' | 'jobradar' | 'portfolio'
   sections: CaseSection[]
   /** Recommandation affichée à la fin de l'étude de cas, là où elle a le plus de poids. */
   testimonial?: Testimonial

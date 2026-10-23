@@ -45,6 +45,8 @@ public class SecurityConfig {
                 .logout(AbstractHttpConfigurer::disable)
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers(HttpMethod.POST, "/api/contact").permitAll()
+                        // Mesures du Pi affichées sur l'accueil : température, durée depuis le démarrage, charge.
+                        .requestMatchers(HttpMethod.GET, "/api/status").permitAll()
                         .requestMatchers("/api/admin/**").hasRole("ADMIN")
                         // Sonde du healthcheck Docker. nginx ne relaie que /api/ : invisible depuis Internet.
                         .requestMatchers(HttpMethod.GET, "/actuator/health/**").permitAll()

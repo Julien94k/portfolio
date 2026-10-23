@@ -68,8 +68,20 @@ Contrastes visés (AA) : encre/papier > 12:1, crayon/papier > 6:1, sapin/papier 
 
 ## Mouvement
 
-Aucune animation d'entrée. Seules transitions : couleur et soulignement au survol (120 ms), et
-l'état d'envoi du formulaire. `prefers-reduced-motion` coupe tout.
+Aucune animation d'entrée. Seules transitions : couleur et soulignement au survol (120 ms), teinte du
+cadre d'un projet au survol, et l'état d'envoi du formulaire. Une seule animation : la diode
+d'activité du Pi clignote quand les mesures arrivent. `prefers-reduced-motion` coupe tout.
+
+## Illustrations et élément signature
+
+- L'ouverture est une phrase en grande serif (jusqu'à 4 rem), le nom en gras : la typographie fait
+  le visuel, comme chez Maggie Appleton ou Rauno Freiberg.
+- L'élément signature est le Raspberry Pi 5 qui sert le site : dessiné en SVG aux proportions de la
+  vraie carte, avec trois mesures en direct (`/api/status`).
+- Chaque projet a un visuel dans un cadre teinté (`--teinte`) : sa vraie capture, ou un schéma
+  dessiné quand il n'y a rien de montrable (Tima, JobRadar, ce portfolio).
+- Les schémas n'utilisent que les couleurs du site, par des classes CSS : ils suivent le thème sombre.
+  Traits de 1,5 px, bouts arrondis, le stabilo pour ce qui est pré-rempli ou retenu.
 
 ## États
 

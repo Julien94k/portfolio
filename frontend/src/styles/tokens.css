@@ -8,6 +8,10 @@
   --sapin-fonce: #154536;
   --stabilo: #f3e58c;
 
+  --teinte: #e7eae3;
+  --teinte-forte: #dde2d9;
+  --pi-carte: #d6e5dc;
+
   --champ: #ffffff;
   --bord-champ: #7a847d;
   --code: #e9ece6;
@@ -33,6 +37,10 @@
     --sapin: #86c9ae;
     --sapin-fonce: #a7dcc6;
     --stabilo: #5a5222;
+
+    --teinte: #1c2228;
+    --teinte-forte: #222a31;
+    --pi-carte: #1d3028;
 
     --champ: #1b2026;
     --bord-champ: #6b7580;

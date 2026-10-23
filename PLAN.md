@@ -157,3 +157,36 @@ sur ce qui rend un portfolio de développeur efficace, puis appliquée ici.
 - [x] Nouvelle page `/parcours` : la version CV (expérience détaillée, compétences avec contexte, formation)
 - [x] Navigation : Projets, Parcours, Contact
 - [ ] **Julien** : une photo de lui (facultatif), et relecture des phrases personnelles
+
+---
+
+# Version 3 : le visuel
+
+Retour de Julien sur la v2 : le contenu est mieux, mais le site reste visuellement plat.
+
+## Ce qu'on a observé
+
+Recherche, puis captures de quatre sites de développeurs souvent cités (Maggie Appleton, Rauno
+Freiberg, Josh Comeau, Brittany Chiang). Ce qu'ils ont et que ce site n'avait pas :
+
+| Constat | Où |
+|---|---|
+| Une ouverture en très grande typographie : une phrase sur la personne, en serif de ~100 px | Maggie Appleton, Rauno Freiberg |
+| Un élément visuel signature, propre à la personne : illustrations, avatar, forme | Maggie Appleton, Josh Comeau, Rauno Freiberg |
+| Chaque contenu a son visuel ; un bloc de texte sans image se lit comme une corvée | Maggie Appleton ; UXfolio |
+| Des titres de section grands et légers, qui rythment la page | Maggie Appleton |
+| L'œuvre est l'élément le plus fort de la page ; légende sous chaque image | Portfoliobox ; UXfolio |
+| Profondeur par des teintes d'une même couleur, sans dégradé | Morningside ; own.page |
+
+## Ce qui change
+
+- [x] Ouverture en grande serif : « Je m'appelle Julien Lim. Je construis des applications web de bout
+      en bout, et les outils qui me manquent. »
+- [x] Élément signature : un dessin de la carte du Raspberry Pi 5, avec ce qui tourne dessus et des
+      mesures en direct (température, jours sans redémarrage, charge) servies par l'API
+- [x] `GET /api/status` : lecture de `/sys` et `/proc`, cache de 30 s, route publique ajoutée à
+      `SecurityConfig` et testée, limite de débit dans nginx
+- [x] Projets en grille, chacun avec son visuel dans un cadre teinté : captures réelles, et
+      illustrations dessinées pour Tima (e-mail, LLM, fiche pré-remplie) et JobRadar (radar)
+- [x] Citation de Mathilde Lorrain en grand, comme une respiration entre deux sections
+- [x] Titres de section plus grands et plus légers

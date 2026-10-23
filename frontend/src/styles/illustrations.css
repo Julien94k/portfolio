@@ -1,0 +1,159 @@
+/* Illustrations dessinées en SVG : uniquement les couleurs du site, elles suivent le thème clair ou sombre. */
+
+.ill {
+  display: block;
+  width: 100%;
+  height: auto;
+  font-family: var(--sans);
+}
+
+.ill-board {
+  fill: var(--pi-carte);
+  stroke: var(--encre);
+  stroke-width: 1.5;
+}
+
+.ill-hole {
+  fill: var(--papier);
+  stroke: var(--encre);
+  stroke-width: 1.5;
+}
+
+.ill-pin,
+.ill-chip,
+.ill-socket {
+  fill: var(--encre);
+}
+
+.ill-chip-text {
+  fill: var(--papier);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+.ill-chip-text-small {
+  font-size: 11px;
+}
+
+.ill-port,
+.ill-paper {
+  fill: var(--papier);
+  stroke: var(--encre);
+  stroke-width: 1.5;
+  stroke-linejoin: round;
+}
+
+.ill-line,
+.ill-arrow {
+  fill: none;
+  stroke: var(--encre);
+  stroke-width: 1.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.ill-accent-line {
+  fill: none;
+  stroke: var(--sapin);
+  stroke-width: 2;
+  stroke-linecap: round;
+}
+
+.ill-solid {
+  fill: var(--sapin);
+}
+
+.ill-solid-text {
+  fill: var(--papier);
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.ill-solid-text-small {
+  font-size: 15px;
+}
+
+.ill-mark {
+  fill: var(--stabilo);
+}
+
+.ill-empty {
+  fill: none;
+  stroke: var(--crayon);
+  stroke-width: 1.2;
+  stroke-dasharray: 4 3;
+}
+
+.ill-ring {
+  fill: none;
+  stroke: var(--crayon);
+  stroke-width: 1;
+  opacity: 0.55;
+}
+
+.ill-sweep {
+  fill: var(--sapin);
+  opacity: 0.16;
+}
+
+.ill-dot,
+.ill-bar {
+  fill: var(--crayon);
+}
+
+.ill-bar {
+  opacity: 0.45;
+}
+
+.ill-bar-strong {
+  fill: var(--encre);
+}
+
+.ill-dot-match {
+  fill: var(--sapin);
+  stroke: var(--stabilo);
+  stroke-width: 3;
+}
+
+.ill-label,
+.ill-title {
+  fill: var(--encre);
+  font-size: 14px;
+}
+
+.ill-title {
+  font-weight: 700;
+}
+
+.ill-small {
+  fill: var(--crayon);
+  font-size: 13px;
+}
+
+/* La diode d'activité clignote quand les mesures du Pi arrivent : le seul mouvement de la page. */
+.ill-led {
+  fill: var(--crayon);
+}
+
+.ill-led-live {
+  fill: var(--sapin);
+  animation: activite 2.4s ease-in-out infinite;
+}
+
+@keyframes activite {
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0.25;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ill-led-live {
+    animation: none;
+  }
+}

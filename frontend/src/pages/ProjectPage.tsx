@@ -1,4 +1,5 @@
 import { Blocks } from '../components/Blocks'
+import { ProjectVisual } from '../components/ProjectVisual'
 import { projects } from '../content/projects'
 import type { Project } from '../content/types'
 import { Link } from '../router/router'
@@ -44,16 +45,9 @@ export function ProjectPage({ project }: { project: Project }) {
         )}
       </header>
 
-      {project.image && (
-        <figure className={`case-image case-image-${project.image.kind}`}>
-          <img
-            src={project.image.src}
-            alt={project.image.alt}
-            width={project.image.width}
-            height={project.image.height}
-            loading="lazy"
-            decoding="async"
-          />
+      {(project.image || project.illustration) && (
+        <figure className="case-visual">
+          <ProjectVisual project={project} />
         </figure>
       )}
 

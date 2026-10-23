@@ -62,3 +62,7 @@ portfolio:
     ntfy-url: ${NTFY_URL:https://ntfy.sh}
     ntfy-topic: ${NTFY_TOPIC:}
     admin-url: ${PUBLIC_URL:https://julienhome.com}/admin
+  status:
+    thermal-path: /sys/class/thermal/thermal_zone0/temp
+    uptime-path: /proc/uptime
+    loadavg-path: /proc/loadavg

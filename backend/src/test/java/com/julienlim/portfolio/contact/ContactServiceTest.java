@@ -38,7 +38,7 @@ class ContactServiceTest {
     @BeforeEach
     void setUp() {
         var properties = new PortfolioProperties(null,
-                new PortfolioProperties.Contact(Duration.ofSeconds(3), 2, Duration.ofDays(365)), null);
+                new PortfolioProperties.Contact(Duration.ofSeconds(3), 2, Duration.ofDays(365)), null, null);
         service = new ContactService(repository, events, properties, Clock.fixed(NOW, ZoneOffset.UTC));
     }
 

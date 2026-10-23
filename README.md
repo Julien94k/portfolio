@@ -4,7 +4,8 @@ Le code de **https://julienhome.com** : mon portfolio de développeur full-stack
 
 Le contenu du site est dans le code du front et chaque page est pré-générée en HTML au build : le site
 s'affiche immédiatement, se référence bien et reste en ligne même si l'API est arrêtée. L'API Spring
-Boot ne sert que ce qui a besoin d'un serveur : le formulaire de contact et la lecture des messages.
+Boot ne sert que ce qui a besoin d'un serveur : le formulaire de contact, la lecture des messages, et
+quelques mesures du Raspberry Pi affichées en direct sur l'accueil (`GET /api/status`).
 
 ```
 visiteur ──► Cloudflare (HTTPS) ──► tunnel ──► nginx (pages HTML pré-générées + /api)

@@ -1,11 +1,12 @@
 package com.julienlim.portfolio.config;
 
+import java.nio.file.Path;
 import java.time.Duration;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
 
 @ConfigurationProperties(prefix = "portfolio")
-public record PortfolioProperties(Admin admin, Contact contact, Notify notifications) {
+public record PortfolioProperties(Admin admin, Contact contact, Notify notifications, Status status) {
 
     /** Compte unique de l'administration. Sans empreinte, l'administration est fermée. */
     public record Admin(String username, String passwordHash) {
@@ -24,5 +25,9 @@ public record PortfolioProperties(Admin admin, Contact contact, Notify notificat
         public boolean enabled() {
             return ntfyTopic != null && !ntfyTopic.isBlank();
         }
+    }
+
+    /** Fichiers lus pour les mesures du Pi affichées sur l'accueil. */
+    public record Status(Path thermalPath, Path uptimePath, Path loadavgPath) {
     }
 }

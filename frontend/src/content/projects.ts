@@ -4,6 +4,7 @@ import type { Project } from './types'
 export const projects: Project[] = [
   {
     slug: 'tima',
+    illustration: 'tima',
     title: 'Tima, l’outil de recrutement de Takima',
     summary:
       'Mon stage de fin d’études, sur un logiciel utilisé chaque jour par des recruteurs : LLM en production, sécurité de l’API, et quelques ratés instructifs.',
@@ -211,6 +212,7 @@ export const projects: Project[] = [
   },
   {
     slug: 'jobradar',
+    illustration: 'jobradar',
     title: 'JobRadar',
     summary:
       'Mon outil de recherche d’emploi : il collecte les offres, les note selon mon profil avec un LLM, et me prévient des meilleures sur mon téléphone.',
@@ -259,6 +261,7 @@ export const projects: Project[] = [
   },
   {
     slug: 'portfolio',
+    illustration: 'portfolio',
     title: 'Ce portfolio',
     summary:
       'Le site que vous lisez. Le serveur ne fait que ce qui a besoin d’un serveur : le reste est du HTML pré-généré.',
@@ -288,7 +291,7 @@ export const projects: Project[] = [
         blocks: [
           'Le contenu d’un portfolio change quelques fois par an. Le servir depuis une base de données à chaque visite aurait ajouté de la mémoire consommée, du code exposé et une page blanche le jour où l’API tombe.',
           'Le texte vit donc dans le code du front. Au build, chaque page est rendue en HTML statique par React : elle s’affiche avant même que le JavaScript soit chargé, et reste en ligne si l’API est arrêtée.',
-          'L’API Spring Boot ne s’occupe que du formulaire de contact et de la lecture des messages. Là, un serveur a une vraie raison d’exister : valider, filtrer, stocker, protéger l’accès.',
+          'L’API Spring Boot ne s’occupe que du formulaire de contact, de la lecture des messages, et des mesures du Raspberry Pi affichées sur l’accueil. Là, un serveur a une vraie raison d’exister : valider, filtrer, stocker, protéger l’accès, lire la machine.',
         ],
       },
       {
@@ -310,6 +313,7 @@ export const projects: Project[] = [
         heading: 'Sobre exprès',
         blocks: [
           'Beaucoup de portfolios se ressemblent aujourd’hui : dégradé violet, cartes arrondies, titres centrés, animations à chaque défilement. J’ai voulu l’inverse. Deux polices choisies pour la lecture, une serif pour les titres et une sans-serif pour le texte, auto-hébergées. Cinq couleurs, aucun dégradé, des liens soulignés. Le texte raconte ce qui a raté autant que ce qui a marché.',
+                  'En haut de l’accueil, le Raspberry Pi qui sert le site est dessiné aux proportions de la vraie carte. Ses trois mesures, température, durée depuis le dernier démarrage et charge, sont lues dans /sys et /proc par l’API au moment de la visite. Les projets sans capture montrable ont un schéma dessiné à la main, avec les mêmes couleurs que le reste du site.',
         ],
       },
     ],
