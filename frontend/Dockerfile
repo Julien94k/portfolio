@@ -9,7 +9,7 @@ COPY . .
 RUN npm run build
 
 # Image nginx qui tourne sans root et écoute sur 8080.
-FROM nginxinc/nginx-unprivileged:1.29-alpine
+FROM nginxinc/nginx-unprivileged:1.31-alpine
 COPY --from=build /app/dist /usr/share/nginx/html
 COPY nginx/default.conf /etc/nginx/conf.d/default.conf
 COPY nginx/snippets /etc/nginx/snippets
