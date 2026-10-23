@@ -10,8 +10,8 @@ Plan suivi et état d'avancement : `PLAN.md`. Direction artistique et liste d'in
   de collègue, hormis Mathilde Lorrain (accord donné pour la citation).
 - **Ton** : vouvoiement envers le visiteur, première personne, phrases concrètes. Typographie
   française : espace fine insécable (U+202F) avant `: ; ? !`, apostrophe typographique `’`.
-- **Design** : respecter la liste d'interdits de `docs/design.md` (pas de dégradé, pas d'animation
-  d'entrée, pas de cartes, pas d'Inter, etc.).
+- **Design** : clair, façon page produit Apple, à la demande de Julien. Suivre `docs/design.md`
+  (jetons de couleur, police Onest, titres en deux temps, visuels avant le texte).
 - **Commits** : sans trailer `Co-Authored-By` ni mention d'IA.
 - **Sécurité** : toute nouvelle route API doit être ajoutée explicitement à `SecurityConfig` et
   couverte par un test d'accès. Toute ressource tierce casse la CSP de `frontend/nginx/snippets/`.

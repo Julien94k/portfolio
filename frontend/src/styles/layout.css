@@ -2,40 +2,46 @@
   position: absolute;
   left: var(--gouttiere);
   top: -3rem;
-  z-index: 10;
+  z-index: 20;
   padding: 0.5rem 0.9rem;
-  background: var(--encre);
-  color: var(--papier);
+  border-radius: 8px;
+  background: var(--texte);
+  color: var(--blanc);
 }
 
 .skip-link:focus {
-  top: 0.75rem;
+  top: 0.6rem;
 }
 
+/* Barre translucide, comme celle d'apple.com : le contenu défile dessous, flouté. */
 .site-header {
   position: sticky;
   top: 0;
-  z-index: 5;
-  background: var(--papier);
-  border-bottom: 1px solid var(--filet);
+  z-index: 10;
+  background: rgb(255 255 255 / 0.78);
+  backdrop-filter: saturate(180%) blur(20px);
+  -webkit-backdrop-filter: saturate(180%) blur(20px);
+  border-bottom: 1px solid rgb(0 0 0 / 0.08);
 }
 
 .site-header-inner {
   max-width: var(--page);
   margin: 0 auto;
-  padding: 0.85rem var(--gouttiere);
+  padding: 0 var(--gouttiere);
+  height: 48px;
   display: flex;
-  flex-wrap: wrap;
-  align-items: baseline;
+  align-items: center;
   justify-content: space-between;
-  gap: 0.4rem 1.5rem;
+  gap: 1rem;
 }
 
 .site-name {
-  font-family: var(--serif);
   font-weight: 600;
-  font-size: 1.15rem;
-  color: var(--encre);
+  font-size: 17px;
+  color: var(--texte);
+}
+
+.site-name:hover {
   text-decoration: none;
 }
 
@@ -44,55 +50,45 @@
   margin: 0;
   padding: 0;
   display: flex;
-  flex-wrap: wrap;
-  gap: 0.25rem 1.25rem;
+  gap: 1.5rem;
 }
 
 .site-header nav a {
-  color: var(--encre);
-  text-decoration-color: transparent;
+  color: var(--texte);
+  font-size: 13px;
+  opacity: 0.85;
 }
 
 .site-header nav a:hover {
-  color: var(--sapin);
-  text-decoration-color: currentColor;
+  opacity: 1;
+  text-decoration: none;
 }
 
 main {
   display: block;
-  max-width: var(--page);
-  margin: 0 auto;
-  padding: 0 var(--gouttiere);
 }
 
 .site-footer {
+  background: var(--gris-fond);
+  color: var(--texte-doux);
+  font-size: 12px;
+  line-height: 1.6;
+}
+
+.site-footer-inner {
   max-width: var(--page);
-  margin: 4rem auto 0;
-  padding: 1.5rem var(--gouttiere) 2.5rem;
-  border-top: 1px solid var(--filet);
-  color: var(--crayon);
-  font-size: 0.95rem;
+  margin: 0 auto;
+  padding: 1.25rem var(--gouttiere) 2rem;
+  border-top: 1px solid var(--trait);
 }
 
 .site-footer p {
-  margin: 0 0 0.5rem;
+  margin: 0 0 0.4rem;
   display: flex;
   flex-wrap: wrap;
   gap: 0.25rem 1.25rem;
 }
 
-/* Sur mobile, un en-tête collant mangerait l'écran et masquerait les titres visés par les ancres. */
-@media (max-width: 760px) {
-  html {
-    scroll-padding-top: 1rem;
-  }
-
-  .site-header {
-    position: static;
-  }
-
-  .site-header nav ul {
-    gap: 0.25rem 1rem;
-    font-size: 0.95rem;
-  }
+.site-footer a {
+  color: var(--texte);
 }

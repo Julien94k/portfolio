@@ -8,6 +8,18 @@ export const profile = {
     'J’ai fait mon stage de fin d’études chez Takima : une formation interne, puis Tima, un logiciel de recrutement en production. J’y ai livré une trentaine de fonctionnalités et de correctifs, dont la création automatique de missions à partir des e-mails clients, analysés par un LLM.',
     'Chez moi, je me fabrique les outils qui me manquent. Je cherche du travail avec un radar d’offres que j’ai écrit, j’apprends le piano avec ma propre appli, et tout ça tourne sur un Raspberry Pi.',
   ],
+  /** L'intro de l'accueil : texte gris, seuls les segments `true` passent en noir. */
+  story: [
+    ['J’ai fait mon stage de fin d’études chez Takima, sur ', false],
+    ['un logiciel de recrutement en production', true],
+    ['. J’y ai livré ', false],
+    ['une trentaine de fonctionnalités et de correctifs', true],
+    [', dont ', false],
+    ['un LLM qui transforme les e-mails des clients en missions pré-remplies', true],
+    ['. Chez moi, ', false],
+    ['je me fabrique les outils qui me manquent', true],
+    [', et ils tournent sur un Raspberry Pi.', false],
+  ] as Array<[string, boolean]>,
   availability: 'Je cherche un CDI en développement full-stack en Île-de-France, disponible dès maintenant.',
   linkedin: 'https://www.linkedin.com/in/lim-julien',
   github: 'https://github.com/Julien94k',

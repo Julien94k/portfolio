@@ -30,9 +30,13 @@ export type CaseSection = {
 
 export type Project = {
   slug: string
+  /** Nom court, pour les étiquettes. */
+  name: string
   title: string
   /** Une phrase pour l'accueil : le problème que le projet résout. */
   summary: string
+  /** Titre de la section du projet sur l'accueil : une affirmation, puis sa précision en gris. */
+  headline: [string, string]
   tagline: string
   context: string
   period: string

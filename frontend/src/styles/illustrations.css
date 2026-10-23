@@ -8,25 +8,25 @@
 }
 
 .ill-board {
-  fill: var(--pi-carte);
-  stroke: var(--encre);
+  fill: var(--bleu-clair);
+  stroke: var(--texte);
   stroke-width: 1.5;
 }
 
 .ill-hole {
-  fill: var(--papier);
-  stroke: var(--encre);
+  fill: var(--blanc);
+  stroke: var(--texte);
   stroke-width: 1.5;
 }
 
 .ill-pin,
 .ill-chip,
 .ill-socket {
-  fill: var(--encre);
+  fill: var(--texte);
 }
 
 .ill-chip-text {
-  fill: var(--papier);
+  fill: var(--blanc);
   font-size: 12px;
   font-weight: 600;
   letter-spacing: 0.02em;
@@ -38,8 +38,8 @@
 
 .ill-port,
 .ill-paper {
-  fill: var(--papier);
-  stroke: var(--encre);
+  fill: var(--blanc);
+  stroke: var(--texte);
   stroke-width: 1.5;
   stroke-linejoin: round;
 }
@@ -47,7 +47,7 @@
 .ill-line,
 .ill-arrow {
   fill: none;
-  stroke: var(--encre);
+  stroke: var(--texte);
   stroke-width: 1.5;
   stroke-linecap: round;
   stroke-linejoin: round;
@@ -55,17 +55,17 @@
 
 .ill-accent-line {
   fill: none;
-  stroke: var(--sapin);
+  stroke: var(--bleu);
   stroke-width: 2;
   stroke-linecap: round;
 }
 
 .ill-solid {
-  fill: var(--sapin);
+  fill: var(--bleu);
 }
 
 .ill-solid-text {
-  fill: var(--papier);
+  fill: var(--blanc);
   font-size: 20px;
   font-weight: 700;
 }
@@ -75,31 +75,31 @@
 }
 
 .ill-mark {
-  fill: var(--stabilo);
+  fill: var(--ciel);
 }
 
 .ill-empty {
   fill: none;
-  stroke: var(--crayon);
+  stroke: var(--texte-doux);
   stroke-width: 1.2;
   stroke-dasharray: 4 3;
 }
 
 .ill-ring {
   fill: none;
-  stroke: var(--crayon);
+  stroke: var(--texte-doux);
   stroke-width: 1;
   opacity: 0.55;
 }
 
 .ill-sweep {
-  fill: var(--sapin);
+  fill: var(--bleu);
   opacity: 0.16;
 }
 
 .ill-dot,
 .ill-bar {
-  fill: var(--crayon);
+  fill: var(--texte-doux);
 }
 
 .ill-bar {
@@ -107,18 +107,18 @@
 }
 
 .ill-bar-strong {
-  fill: var(--encre);
+  fill: var(--texte);
 }
 
 .ill-dot-match {
-  fill: var(--sapin);
-  stroke: var(--stabilo);
+  fill: var(--bleu);
+  stroke: var(--ciel);
   stroke-width: 3;
 }
 
 .ill-label,
 .ill-title {
-  fill: var(--encre);
+  fill: var(--texte);
   font-size: 14px;
 }
 
@@ -127,17 +127,17 @@
 }
 
 .ill-small {
-  fill: var(--crayon);
+  fill: var(--texte-doux);
   font-size: 13px;
 }
 
 /* La diode d'activité clignote quand les mesures du Pi arrivent : le seul mouvement de la page. */
 .ill-led {
-  fill: var(--crayon);
+  fill: var(--texte-doux);
 }
 
 .ill-led-live {
-  fill: var(--sapin);
+  fill: var(--bleu);
   animation: activite 2.4s ease-in-out infinite;
 }
 

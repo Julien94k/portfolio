@@ -1,135 +1,139 @@
+import { BrowserFrame, PhoneFrame } from '../components/DeviceFrames'
 import { ContactForm } from '../components/ContactForm'
-import { PiStatusPanel } from '../components/PiStatusPanel'
+import { PiSpecs } from '../components/PiSpecs'
 import { ProjectVisual } from '../components/ProjectVisual'
 import { homelab, profile, testimonial, tools } from '../content/profile'
-import { projects } from '../content/projects'
+import { findProject, projects } from '../content/projects'
 import { Link } from '../router/router'
 
 export function HomePage() {
-  const [featured, ...others] = projects
+  const manguessr = findProject('manguessr')
+  const pianolearn = findProject('pianolearn')
 
   return (
     <div className="home">
-      <section className="hero" aria-labelledby="intro-titre">
-        <h1 id="intro-titre" className="hero-title">
-          <strong>Je m’appelle {profile.name}.</strong> Je construis des applications web de bout en bout, et les
-          outils qui me manquent.
-        </h1>
-        <div className="hero-grid">
-          <div className="hero-text">
-            <p className="hero-role">{profile.role}.</p>
-            {profile.intro.map((paragraph) => (
-              <p key={paragraph}>{paragraph}</p>
-            ))}
-            <p>
-              <mark>{profile.availability}</mark>
-            </p>
-            <p className="intro-links">
-              <Link href="/#contact">M’écrire</Link>
-              <Link href="/parcours">Mon parcours, version CV</Link>
-              <a href={profile.linkedin}>LinkedIn</a>
-              <a href={profile.github}>GitHub</a>
-            </p>
-          </div>
-          <PiStatusPanel />
-        </div>
-      </section>
-
-      <section className="block" id="projets" tabIndex={-1} aria-labelledby="projets-titre">
-        <h2 id="projets-titre" className="block-title">
-          Ce que j’ai construit
-        </h2>
-
-        <article className="project project-featured">
-          <Link href={`/projets/${featured.slug}`} className="project-visual" tabIndex={-1} aria-hidden="true">
-            <ProjectVisual project={featured} decorative />
+      <section className="hero" aria-labelledby="hero-titre">
+        <h1 id="hero-titre">{profile.name}</h1>
+        <p className="hero-lede">
+          Développeur full-stack Java et React.
+          <span>Je construis des applis, et les outils qui me manquent.</span>
+        </p>
+        <p className="hero-actions">
+          <Link href="/#contact" className="pill">
+            M’écrire
           </Link>
-          <div className="project-text">
-            <h3>
-              <Link href={`/projets/${featured.slug}`}>{featured.title}</Link>
-            </h3>
-            <p className="entry-meta">
-              {featured.context}, {featured.period}
-            </p>
-            <p>{featured.summary}</p>
-            <p className="stack">{featured.stack.join(', ')}</p>
+          <Link href="/parcours" className="pill pill-quiet">
+            Voir mon parcours
+          </Link>
+        </p>
+        <p className="hero-status">{profile.availability}</p>
+
+        {manguessr?.image && pianolearn?.image && (
+          <div className="hero-devices" aria-hidden="true">
+            <BrowserFrame {...manguessr.image} alt="" url="manguessr.julienhome.com" eager />
+            <PhoneFrame {...pianolearn.image} alt="" eager />
           </div>
-        </article>
+        )}
+      </section>
 
-        <div className="project-grid">
-          {others.map((project) => (
-            <article key={project.slug} className="project">
-              <Link href={`/projets/${project.slug}`} className="project-visual" tabIndex={-1} aria-hidden="true">
-                <ProjectVisual project={project} decorative />
-              </Link>
-              <div className="project-text">
-                <h3>
-                  <Link href={`/projets/${project.slug}`}>{project.title}</Link>
-                </h3>
-                <p className="entry-meta">
-                  {project.context}, {project.period}
-                </p>
-                <p>{project.summary}</p>
-                <p className="stack">{project.stack.join(', ')}</p>
-              </div>
-            </article>
-          ))}
+      <section className="band band-grey" aria-label="En bref">
+        <p className="story">
+          {profile.story.map(([text, strong]) => (strong ? <strong key={text}>{text}</strong> : text))}
+        </p>
+      </section>
+
+      <div id="projets" tabIndex={-1} className="anchor" />
+      {projects.map((project, index) => (
+        <section
+          key={project.slug}
+          className={index % 2 === 1 ? 'band band-grey project' : 'band project'}
+          aria-labelledby={`projet-${project.slug}`}
+        >
+          <div className="project-head">
+            <p className="project-label">{project.name}</p>
+            <h2 id={`projet-${project.slug}`} className="split-title">
+              {project.headline[0]}
+              <span>{project.headline[1]}</span>
+            </h2>
+          </div>
+          <Link href={`/projets/${project.slug}`} className="project-visual" tabIndex={-1} aria-hidden="true">
+            <ProjectVisual project={project} decorative />
+          </Link>
+          <div className="project-foot">
+            <p>{project.summary}</p>
+            <p className="project-links">
+              <Link href={`/projets/${project.slug}`}>Lire l’étude de cas</Link>
+              {project.links.map((link) => (
+                <a key={link.href} href={link.href}>
+                  {link.label}
+                </a>
+              ))}
+            </p>
+          </div>
+        </section>
+      ))}
+
+      <section className="band band-grey" aria-labelledby="pi-titre">
+        <div className="project-head">
+          <p className="project-label">Hébergement</p>
+          <h2 id="pi-titre" className="split-title">
+            Servi depuis un Raspberry Pi 5.
+            <span>Chez moi, mesuré à l’instant.</span>
+          </h2>
         </div>
+        <PiSpecs />
+        <p className="band-text">{homelab}</p>
       </section>
 
-      <figure className="pull-quote">
-        <blockquote>
-          <p>{testimonial.quote[1]}</p>
-        </blockquote>
-        <figcaption>
-          <strong>{testimonial.author}</strong>, ma tech lead chez Takima.{' '}
-          <Link href={`/projets/${featured.slug}`}>Lire le récit du stage</Link>
-        </figcaption>
-      </figure>
-
-      <section className="block" id="outils" tabIndex={-1} aria-labelledby="outils-titre">
-        <h2 id="outils-titre" className="block-title">
-          Des outils plus petits, écrits pour moi
-        </h2>
-        <p>
-          Quand quelque chose me fait perdre du temps, je finis souvent par écrire l’outil. Ceux-là ne
-          serviront probablement qu’à moi, et c’est très bien comme ça.
-        </p>
-        <dl className="tools">
+      <section className="band" aria-labelledby="outils-titre">
+        <div className="project-head">
+          <p className="project-label">Petits outils</p>
+          <h2 id="outils-titre" className="split-title">
+            Quand un outil me manque, je l’écris.
+            <span>Ceux-là ne servent qu’à moi.</span>
+          </h2>
+        </div>
+        <ul className="tiles">
           {tools.map((tool) => (
-            <div key={tool.title}>
-              <dt>{tool.title}</dt>
-              <dd>
-                {tool.description} <span className="stack">{tool.stack}.</span>
-                {tool.image && (
-                  <figure className="tool-figure">
-                    <img
-                      src={tool.image.src}
-                      alt=""
-                      width={tool.image.width}
-                      height={tool.image.height}
-                      loading="lazy"
-                      decoding="async"
-                    />
-                    <figcaption>{tool.image.caption}</figcaption>
-                  </figure>
-                )}
-              </dd>
-            </div>
+            <li key={tool.title} className="tile">
+              <h3>{tool.title}</h3>
+              <p>{tool.description}</p>
+              {tool.image && (
+                <img
+                  src={tool.image.src}
+                  alt={tool.image.caption}
+                  width={tool.image.width}
+                  height={tool.image.height}
+                  loading="lazy"
+                  decoding="async"
+                />
+              )}
+              <p className="tile-stack">{tool.stack}</p>
+            </li>
           ))}
-        </dl>
-        <p>{homelab}</p>
+        </ul>
       </section>
 
-      <section className="block" id="contact" tabIndex={-1} aria-labelledby="contact-titre">
-        <h2 id="contact-titre" className="block-title">
-          Me contacter
+      <section className="band band-grey quote" aria-label="Recommandation">
+        <figure>
+          <blockquote>
+            <p>{testimonial.quote[1]}</p>
+          </blockquote>
+          <figcaption>
+            {testimonial.author}, ma tech lead chez Takima
+          </figcaption>
+        </figure>
+      </section>
+
+      <section className="band contact" id="contact" tabIndex={-1} aria-labelledby="contact-titre">
+        <h2 id="contact-titre" className="split-title split-title-center">
+          Un poste à pourvoir{' '}?
+          <span>Écrivez-moi, je réponds par e-mail.</span>
         </h2>
-        <p>
-          Un poste à pourvoir, une question sur un projet ou sur mon stage{' '}: écrivez-moi ici, le message
-          arrive directement sur mon téléphone. Vous pouvez aussi passer par <a href={profile.linkedin}>LinkedIn</a>.
-        </p>
         <ContactForm />
+        <p className="contact-alt">
+          Ou sur <a href={profile.linkedin}>LinkedIn</a>.
+        </p>
       </section>
     </div>
   )

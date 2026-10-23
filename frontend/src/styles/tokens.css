@@ -1,51 +1,29 @@
-/* Cinq couleurs avec un rôle chacune, plus celles des formulaires. Détail dans docs/design.md. */
+/* Clair uniquement, comme une page produit Apple : blanc et gris très clair en bandes, bleu pour agir. */
 :root {
-  --papier: #f5f6f3;
-  --encre: #1b2430;
-  --crayon: #505a66;
-  --filet: #d5dad4;
-  --sapin: #1d5c47;
-  --sapin-fonce: #154536;
-  --stabilo: #f3e58c;
+  color-scheme: light;
 
-  --teinte: #e7eae3;
-  --teinte-forte: #dde2d9;
-  --pi-carte: #d6e5dc;
+  --blanc: #ffffff;
+  --gris-fond: #f5f5f7;
+  --texte: #1d1d1f;
+  --texte-doux: #6e6e73;
+  /* Seconde ligne des titres : le gris bleuté de la page iPhone Air. */
+  --ardoise: #5c6b7a;
+  --trait: #d2d2d7;
+  --bleu: #0071e3;
+  --bleu-lien: #0066cc;
+  --bleu-clair: #e8f1fb;
+  --ciel: #cfe3f7;
 
-  --champ: #ffffff;
-  --bord-champ: #7a847d;
-  --code: #e9ece6;
-  --danger: #9b2c2c;
-  --danger-fond: #f8eceb;
+  --danger: #c4281c;
+  --danger-fond: #fdf1f0;
+  --succes-fond: #eef7f0;
 
-  --serif: 'Source Serif 4 Variable', Georgia, 'Times New Roman', serif;
-  --sans: 'Public Sans Variable', 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  --police: 'Onest Variable', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Helvetica, Arial, sans-serif;
   --mono: ui-monospace, 'SF Mono', Menlo, Consolas, 'Liberation Mono', monospace;
 
-  --mesure: 68ch;
-  --page: 72rem;
-  --gouttiere: 1.25rem;
-  --colonne-label: 11rem;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --papier: #15191e;
-    --encre: #e4e7e2;
-    --crayon: #a3acb5;
-    --filet: #2c333b;
-    --sapin: #86c9ae;
-    --sapin-fonce: #a7dcc6;
-    --stabilo: #5a5222;
-
-    --teinte: #1c2228;
-    --teinte-forte: #222a31;
-    --pi-carte: #1d3028;
-
-    --champ: #1b2026;
-    --bord-champ: #6b7580;
-    --code: #1e242b;
-    --danger: #f0a3a3;
-    --danger-fond: #2b1c1e;
-  }
+  --page: 980px;
+  --large: 1180px;
+  --mesure: 42rem;
+  --gouttiere: 22px;
+  --rayon: 28px;
 }

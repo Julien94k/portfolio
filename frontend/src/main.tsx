@@ -1,7 +1,4 @@
-import '@fontsource-variable/public-sans/wght.css'
-import '@fontsource-variable/public-sans/wght-italic.css'
-import '@fontsource-variable/source-serif-4/wght.css'
-import '@fontsource-variable/source-serif-4/wght-italic.css'
+import '@fontsource-variable/onest/wght.css'
 import { StrictMode } from 'react'
 import { createRoot, hydrateRoot } from 'react-dom/client'
 

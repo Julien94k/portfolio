@@ -4,6 +4,8 @@ import type { Project } from './types'
 export const projects: Project[] = [
   {
     slug: 'tima',
+    name: 'Tima',
+    headline: ['Un LLM en production.', 'Les e-mails des clients deviennent des missions.'],
     illustration: 'tima',
     title: 'Tima, l’outil de recrutement de Takima',
     summary:
@@ -95,6 +97,8 @@ export const projects: Project[] = [
   },
   {
     slug: 'manguessr',
+    name: 'ManGuessr',
+    headline: ['Devinez l’anime du jour.', 'Sans pouvoir tricher avec le navigateur.'],
     title: 'ManGuessr',
     summary:
       'Un jeu de devinettes anime et manga, avec un défi par jour. Le plus difficile : empêcher de tricher avec les outils du navigateur.',
@@ -168,6 +172,8 @@ export const projects: Project[] = [
   },
   {
     slug: 'pianolearn',
+    name: 'PianoLearn',
+    headline: ['Le piano, branché en USB.', 'Une appli qui écoute le vrai clavier.'],
     title: 'PianoLearn',
     summary:
       'J’apprends le piano sur un Yamaha P-145. J’ai écrit l’appli qui va avec : le téléphone écoute le vrai clavier branché en USB.',
@@ -212,6 +218,8 @@ export const projects: Project[] = [
   },
   {
     slug: 'jobradar',
+    name: 'JobRadar',
+    headline: ['Ma recherche d’emploi, automatisée.', 'Un LLM note les offres, mon téléphone sonne pour les meilleures.'],
     illustration: 'jobradar',
     title: 'JobRadar',
     summary:
@@ -261,6 +269,8 @@ export const projects: Project[] = [
   },
   {
     slug: 'portfolio',
+    name: 'Ce portfolio',
+    headline: ['Le site que vous lisez.', 'Le serveur ne fait que ce qui a besoin d’un serveur.'],
     illustration: 'portfolio',
     title: 'Ce portfolio',
     summary:
@@ -310,10 +320,10 @@ export const projects: Project[] = [
         ],
       },
       {
-        heading: 'Sobre exprès',
+        heading: 'Clair, comme une page produit',
         blocks: [
-          'Beaucoup de portfolios se ressemblent aujourd’hui : dégradé violet, cartes arrondies, titres centrés, animations à chaque défilement. J’ai voulu l’inverse. Deux polices choisies pour la lecture, une serif pour les titres et une sans-serif pour le texte, auto-hébergées. Cinq couleurs, aucun dégradé, des liens soulignés. Le texte raconte ce qui a raté autant que ce qui a marché.',
-          'En haut de l’accueil, le Raspberry Pi qui sert le site est dessiné aux proportions de la vraie carte. Ses trois mesures, température, durée depuis le dernier démarrage et charge, sont lues dans /sys et /proc par l’API au moment de la visite. Les projets sans capture montrable ont un schéma dessiné à la main, avec les mêmes couleurs que le reste du site.',
+          'Le site s’inspire des pages produit d’Apple : blanc et gris très clair en bandes, une seule police sans-serif, peu de texte et de grands visuels. Mes applis sont montrées dans un cadre de navigateur ou de téléphone, dessiné en CSS ; les projets sans capture montrable ont un schéma dessiné à la main.',
+          'Les mesures du Raspberry Pi, température, durée depuis le dernier démarrage et charge, sont lues dans /sys et /proc par l’API au moment de la visite, et affichées en grands chiffres comme une fiche technique.',
         ],
       },
     ],

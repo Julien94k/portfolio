@@ -7,26 +7,27 @@
 html {
   -webkit-text-size-adjust: 100%;
   text-size-adjust: 100%;
-  /* La barre de navigation reste en haut : les ancres ne doivent pas passer dessous. */
-  scroll-padding-top: 5rem;
+  scroll-padding-top: 4rem;
 }
 
 body {
   margin: 0;
-  background: var(--papier);
-  color: var(--encre);
-  font-family: var(--sans);
-  font-size: 1.0625rem;
-  line-height: 1.6;
+  background: var(--blanc);
+  color: var(--texte);
+  font-family: var(--police);
+  font-size: 17px;
+  line-height: 1.47;
+  letter-spacing: -0.012em;
+  -webkit-font-smoothing: antialiased;
   font-kerning: normal;
 }
 
 h1,
 h2,
 h3 {
-  font-family: var(--serif);
   font-weight: 600;
-  line-height: 1.2;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
   text-wrap: balance;
   margin: 0;
 }
@@ -42,41 +43,28 @@ p {
 }
 
 a {
-  color: var(--sapin);
-  text-decoration-line: underline;
-  text-decoration-thickness: 1px;
-  text-underline-offset: 0.18em;
-  transition: text-decoration-thickness 120ms ease, color 120ms ease;
+  color: var(--bleu-lien);
+  text-decoration: none;
 }
 
 a:hover {
-  color: var(--sapin-fonce);
-  text-decoration-thickness: 2px;
+  text-decoration: underline;
+  text-underline-offset: 0.18em;
 }
 
 :focus-visible {
-  outline: 2px solid var(--sapin);
-  outline-offset: 3px;
-  border-radius: 2px;
+  outline: 3px solid var(--ciel);
+  outline-offset: 2px;
+  border-radius: 6px;
 }
 
-/* Cibles de focus programmatique (sections, contenu principal) : pas de cadre au clic. */
 [tabindex='-1']:focus:not(:focus-visible) {
   outline: none;
 }
 
-mark {
-  background: var(--stabilo);
-  color: inherit;
-  padding: 0.05em 0.2em;
-  border-radius: 2px;
-  -webkit-box-decoration-break: clone;
-  box-decoration-break: clone;
-}
-
 ::selection {
-  background: var(--stabilo);
-  color: var(--encre);
+  background: var(--ciel);
+  color: var(--texte);
 }
 
 img {
@@ -91,7 +79,7 @@ pre {
 }
 
 .muted {
-  color: var(--crayon);
+  color: var(--texte-doux);
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -99,6 +87,30 @@ pre {
   *::before,
   *::after {
     transition: none !important;
+    animation: none !important;
     scroll-behavior: auto !important;
   }
+}
+
+/* Un lien au milieu d'une phrase ne se repère pas qu'à sa couleur (accessibilité) : il est souligné. */
+p a:not(.pill),
+li a {
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.18em;
+}
+
+.project-links a,
+.case-links a,
+.case-back a,
+.site-footer a,
+.site-header a,
+.intro-links a {
+  text-decoration: none;
+}
+
+.project-links a:hover,
+.case-back a:hover,
+.site-footer a:hover {
+  text-decoration: underline;
 }

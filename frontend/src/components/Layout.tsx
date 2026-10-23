@@ -35,6 +35,7 @@ export function Layout({ children }: { children: ReactNode }) {
         {children}
       </main>
       <footer className="site-footer">
+        <div className="site-footer-inner">
         <p>
           Servi depuis un Raspberry Pi 5 posé chez moi. Mis à jour le {__BUILD_DATE__}.
         </p>
@@ -43,6 +44,7 @@ export function Layout({ children }: { children: ReactNode }) {
           <a href={profile.linkedin}>LinkedIn</a>
           <a href={profile.github}>GitHub</a>
         </p>
+        </div>
       </footer>
     </>
   )

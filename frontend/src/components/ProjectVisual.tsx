@@ -1,4 +1,5 @@
 import type { Project } from '../content/types'
+import { BrowserFrame, PhoneFrame } from './DeviceFrames'
 import { JobRadarIllustration } from './illustrations/JobRadarIllustration'
 import { PortfolioIllustration } from './illustrations/PortfolioIllustration'
 import { TimaIllustration } from './illustrations/TimaIllustration'
@@ -9,29 +10,25 @@ const illustrations = {
   portfolio: PortfolioIllustration,
 }
 
-/**
- * Le visuel d'un projet dans un cadre teinté : sa vraie capture si elle existe, sinon un schéma.
- * `decorative` sur l'accueil, où le titre du projet suit juste après.
- */
+/** Le visuel d'un projet : sa capture dans le bon appareil, sinon un schéma sur une tuile grise. */
 export function ProjectVisual({ project, decorative = false }: { project: Project; decorative?: boolean }) {
-  if (project.image) {
+  const image = project.image
+  if (image) {
+    const shot = { ...image, alt: decorative ? '' : image.alt }
     return (
-      <div className={`visual visual-${project.image.kind}`}>
-        <img
-          src={project.image.src}
-          alt={decorative ? '' : project.image.alt}
-          width={project.image.width}
-          height={project.image.height}
-          loading="lazy"
-          decoding="async"
-        />
+      <div className="visual">
+        {image.kind === 'phone' ? (
+          <PhoneFrame {...shot} />
+        ) : (
+          <BrowserFrame {...shot} url={project.links[0]?.href.replace(/^https?:\/\//, '') ?? ''} />
+        )}
       </div>
     )
   }
   if (project.illustration) {
     const Illustration = illustrations[project.illustration]
     return (
-      <div className="visual visual-illustration" aria-hidden={decorative ? true : undefined}>
+      <div className="visual visual-tile" aria-hidden={decorative ? true : undefined}>
         <Illustration />
       </div>
     )

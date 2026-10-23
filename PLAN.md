@@ -190,3 +190,32 @@ Freiberg, Josh Comeau, Brittany Chiang). Ce qu'ils ont et que ce site n'avait pa
       illustrations dessinées pour Tima (e-mail, LLM, fiche pré-remplie) et JobRadar (radar)
 - [x] Citation de Mathilde Lorrain en grand, comme une respiration entre deux sections
 - [x] Titres de section plus grands et plus légers
+
+---
+
+# Version 4 : clair, façon page produit Apple
+
+Retour de Julien sur la v3 : « juste du thème sombre et plein de texte ». Trois directions maquettées
+(plan de métro, manga, circuit imprimé) : refusées. Brief donné : un thème clair, « type iPhone Air ».
+Ce brief prime sur la liste d'interdits de `docs/design.md`.
+
+## Ce qu'on reprend de la page iPhone Air (observée le 23/10/2026)
+
+| Code Apple | Ici |
+|---|---|
+| Blanc et gris `#F5F5F7` en bandes, texte `#1D1D1F` | Thème clair uniquement, plus de thème sombre |
+| Une seule sans-serif (SF Pro), titres demi-gras serrés | Onest, police libre au dessin proche, auto-hébergée |
+| Titre sur deux lignes : la seconde en gris bleuté | Chaque projet a un titre en deux temps |
+| Le produit en grand, qui flotte | Les applis dans un cadre de navigateur ou d'iPhone, en grand |
+| Paragraphe gris, seuls les mots importants en noir | Une seule intro de ce type, le reste du texte va dans les études de cas |
+| Fiche technique en grands chiffres | Les mesures du Pi en grands chiffres |
+| Boutons en pilule bleu `#0071E3`, barre translucide | Idem |
+
+## Étapes
+
+- [x] Police Onest, palette claire, suppression du thème sombre et des polices serif
+- [x] Cadres d'appareils (navigateur, iPhone) pour les captures
+- [x] Accueil : ouverture centrée + composition d'appareils, intro « mots-clés en noir », une section
+      par projet (étiquette, titre en deux temps, visuel), fiche du Pi, outils en tuiles, contact
+- [x] Études de cas, parcours et admin dans le même style
+- [x] Rendu contrôlé (mobile, ordinateur), Lighthouse, déploiement
