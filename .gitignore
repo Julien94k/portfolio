@@ -1,0 +1,17 @@
+# Secrets locaux : seul .env.sample est versionné
+.env
+.env.*
+!.env.sample
+
+# Build
+backend/target/
+frontend/node_modules/
+frontend/dist/
+
+# Outils
+.idea/
+.vscode/
+*.iml
+.DS_Store
+.claude/settings.local.json
+dist-server/

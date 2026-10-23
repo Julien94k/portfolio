@@ -1,0 +1,138 @@
+.contact-form {
+  margin-top: 1.75rem;
+  max-width: 36rem;
+}
+
+.field {
+  margin-bottom: 1.25rem;
+}
+
+.field label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 0.35rem;
+}
+
+.optional {
+  font-weight: 400;
+  color: var(--crayon);
+}
+
+input,
+textarea,
+button {
+  font: inherit;
+}
+
+.field input,
+.field textarea {
+  width: 100%;
+  padding: 0.6rem 0.7rem;
+  color: var(--encre);
+  background: var(--champ);
+  border: 1px solid var(--bord-champ);
+  border-radius: 3px;
+}
+
+.field textarea {
+  resize: vertical;
+  min-height: 9rem;
+  line-height: 1.5;
+}
+
+.field input:focus-visible,
+.field textarea:focus-visible {
+  outline: 2px solid var(--sapin);
+  outline-offset: 1px;
+  border-color: var(--sapin);
+}
+
+.field [aria-invalid='true'] {
+  border-color: var(--danger);
+}
+
+.field-error {
+  color: var(--danger);
+  font-size: 0.95rem;
+  margin: 0.35rem 0 0;
+}
+
+/* Champ piège : hors écran plutôt que display:none, que certains robots savent ignorer. */
+.trap {
+  position: absolute;
+  left: -10000px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+.form-actions {
+  margin: 1.5rem 0 1rem;
+}
+
+.button {
+  padding: 0.7rem 1.25rem;
+  min-height: 2.75rem;
+  background: var(--sapin);
+  color: var(--papier);
+  border: 0;
+  border-radius: 3px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 120ms ease;
+}
+
+.button:hover:not(:disabled) {
+  background: var(--sapin-fonce);
+}
+
+.button:disabled {
+  opacity: 0.65;
+  cursor: progress;
+}
+
+.button-quiet {
+  padding: 0.45rem 0.85rem;
+  min-height: 2.5rem;
+  background: transparent;
+  color: var(--encre);
+  border: 1px solid var(--bord-champ);
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.button-quiet:hover:not(:disabled) {
+  border-color: var(--encre);
+}
+
+.button-quiet:disabled {
+  opacity: 0.6;
+}
+
+.button-danger {
+  color: var(--danger);
+}
+
+.form-error {
+  color: var(--danger);
+  background: var(--danger-fond);
+  border-left: 3px solid var(--danger);
+  padding: 0.6rem 0.9rem;
+  margin: 1rem 0;
+}
+
+.form-error p {
+  margin: 0 0 0.5rem;
+}
+
+.form-success {
+  margin-top: 1.75rem;
+  padding: 1rem 1.25rem;
+  border-left: 3px solid var(--sapin);
+  background: var(--code);
+}
+
+.form-note {
+  color: var(--crayon);
+  font-size: 0.9rem;
+}

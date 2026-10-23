@@ -1,0 +1,98 @@
+.skip-link {
+  position: absolute;
+  left: var(--gouttiere);
+  top: -3rem;
+  z-index: 10;
+  padding: 0.5rem 0.9rem;
+  background: var(--encre);
+  color: var(--papier);
+}
+
+.skip-link:focus {
+  top: 0.75rem;
+}
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 5;
+  background: var(--papier);
+  border-bottom: 1px solid var(--filet);
+}
+
+.site-header-inner {
+  max-width: var(--page);
+  margin: 0 auto;
+  padding: 0.85rem var(--gouttiere);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.4rem 1.5rem;
+}
+
+.site-name {
+  font-family: var(--serif);
+  font-weight: 600;
+  font-size: 1.15rem;
+  color: var(--encre);
+  text-decoration: none;
+}
+
+.site-header nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem 1.25rem;
+}
+
+.site-header nav a {
+  color: var(--encre);
+  text-decoration-color: transparent;
+}
+
+.site-header nav a:hover {
+  color: var(--sapin);
+  text-decoration-color: currentColor;
+}
+
+main {
+  display: block;
+  max-width: var(--page);
+  margin: 0 auto;
+  padding: 0 var(--gouttiere);
+}
+
+.site-footer {
+  max-width: var(--page);
+  margin: 4rem auto 0;
+  padding: 1.5rem var(--gouttiere) 2.5rem;
+  border-top: 1px solid var(--filet);
+  color: var(--crayon);
+  font-size: 0.95rem;
+}
+
+.site-footer p {
+  margin: 0 0 0.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem 1.25rem;
+}
+
+/* Sur mobile, un en-tête collant mangerait l'écran et masquerait les titres visés par les ancres. */
+@media (max-width: 760px) {
+  html {
+    scroll-padding-top: 1rem;
+  }
+
+  .site-header {
+    position: static;
+  }
+
+  .site-header nav ul {
+    gap: 0.25rem 1rem;
+    font-size: 0.95rem;
+  }
+}

@@ -1,0 +1,389 @@
+/* Accueil */
+
+.intro {
+  padding: 4.5rem 0 3.5rem;
+  max-width: 42rem;
+}
+
+.intro h1 {
+  font-size: clamp(2.3rem, 6vw, 3.2rem);
+  letter-spacing: -0.01em;
+}
+
+.intro-role {
+  font-family: var(--serif);
+  font-size: 1.25rem;
+  color: var(--crayon);
+  margin: 0.4rem 0 1.75rem;
+}
+
+.intro-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.5rem;
+  margin-top: 1.75rem;
+}
+
+/* Une section = une ligne : intitulé à gauche, contenu à droite, comme sur un CV. */
+.row {
+  display: grid;
+  grid-template-columns: var(--colonne-label) minmax(0, 1fr);
+  gap: 2.5rem;
+  padding: 3rem 0;
+  border-top: 1px solid var(--filet);
+}
+
+.row-label {
+  font-size: 1.2rem;
+  align-self: start;
+  position: sticky;
+  top: 5rem;
+}
+
+.row-body {
+  max-width: var(--mesure);
+}
+
+.row-body > :last-child {
+  margin-bottom: 0;
+}
+
+.entry h3,
+.project-row h3 {
+  font-size: 1.3rem;
+}
+
+.entry-meta {
+  color: var(--crayon);
+  font-size: 0.95rem;
+  margin: 0.3rem 0 1rem;
+}
+
+.entry-list {
+  padding-left: 1.15rem;
+  margin: 0 0 1.25rem;
+}
+
+.entry-list li {
+  margin-bottom: 0.6rem;
+}
+
+.entry-list li::marker {
+  color: var(--crayon);
+}
+
+.project-row {
+  padding: 0 0 1.75rem;
+  margin-bottom: 1.75rem;
+  border-bottom: 1px solid var(--filet);
+}
+
+.project-row p {
+  margin-bottom: 0.6rem;
+}
+
+.stack {
+  color: var(--crayon);
+  font-size: 0.93rem;
+}
+
+.subheading {
+  font-size: 1.15rem;
+  margin: 2.5rem 0 1rem;
+}
+
+.side-projects {
+  margin: 0;
+}
+
+.side-projects > div {
+  margin-bottom: 1.5rem;
+}
+
+.side-projects dt {
+  font-weight: 600;
+}
+
+.side-projects dd {
+  margin: 0.25rem 0 0;
+}
+
+.side-projects dd p {
+  margin-bottom: 0.4rem;
+}
+
+.note {
+  font-weight: 400;
+  color: var(--crayon);
+  font-size: 0.9rem;
+  margin-left: 0.4rem;
+}
+
+.testimonial {
+  margin: 0;
+}
+
+.testimonial blockquote {
+  margin: 0 0 1rem;
+  padding-left: 1.25rem;
+  border-left: 3px solid var(--sapin);
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 1.15rem;
+  line-height: 1.55;
+}
+
+.testimonial figcaption {
+  color: var(--crayon);
+}
+
+.testimonial figcaption strong {
+  color: var(--encre);
+}
+
+.testimonial-context {
+  display: block;
+  font-size: 0.9rem;
+}
+
+.skills {
+  margin: 0;
+}
+
+.skills > div {
+  display: grid;
+  grid-template-columns: 9.5rem minmax(0, 1fr);
+  gap: 1rem;
+  padding: 0.7rem 0;
+  border-bottom: 1px solid var(--filet);
+}
+
+.skills > div:first-child {
+  padding-top: 0;
+}
+
+.skills dt {
+  font-weight: 600;
+}
+
+.skills dd {
+  margin: 0;
+}
+
+.timeline {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.timeline li {
+  display: grid;
+  grid-template-columns: 9.5rem minmax(0, 1fr);
+  gap: 1rem;
+  margin-bottom: 1.75rem;
+}
+
+.timeline h3 {
+  font-size: 1.1rem;
+}
+
+.timeline .entry-meta {
+  margin-bottom: 0.4rem;
+}
+
+.timeline-period {
+  color: var(--crayon);
+  font-variant-numeric: tabular-nums;
+  margin: 0;
+}
+
+/* Étude de cas */
+
+.case {
+  max-width: 46rem;
+  padding-top: 2.5rem;
+}
+
+.case-back {
+  margin-bottom: 2rem;
+}
+
+.case-header h1 {
+  font-size: clamp(2rem, 5vw, 2.6rem);
+}
+
+.lead {
+  font-family: var(--serif);
+  font-size: 1.25rem;
+  line-height: 1.5;
+  margin: 1rem 0 2rem;
+}
+
+.case-facts {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem 2rem;
+  margin: 0 0 1.5rem;
+  padding: 1.25rem 0;
+  border-top: 1px solid var(--filet);
+  border-bottom: 1px solid var(--filet);
+}
+
+.case-facts dt {
+  color: var(--crayon);
+  font-size: 0.9rem;
+}
+
+.case-facts dd {
+  margin: 0;
+}
+
+.case-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.5rem;
+}
+
+.case-image {
+  margin: 2.5rem 0;
+}
+
+.case-image img {
+  border: 1px solid var(--filet);
+  border-radius: 4px;
+}
+
+.case-section h2 {
+  font-size: 1.5rem;
+  margin: 3rem 0 1rem;
+}
+
+.code {
+  margin: 1.5rem 0;
+}
+
+.code pre {
+  margin: 0;
+  padding: 1rem 1.1rem;
+  background: var(--code);
+  border-radius: 4px;
+  overflow-x: auto;
+  font-size: 0.88rem;
+  line-height: 1.5;
+}
+
+.code figcaption {
+  color: var(--crayon);
+  font-size: 0.9rem;
+  margin-top: 0.5rem;
+}
+
+.case-next {
+  margin-top: 3.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--filet);
+}
+
+.not-found {
+  padding: 5rem 0 2rem;
+  max-width: 40rem;
+}
+
+.not-found h1 {
+  font-size: 2.2rem;
+  margin-bottom: 1rem;
+}
+
+/* Administration */
+
+.admin {
+  max-width: 46rem;
+  padding-top: 2.5rem;
+}
+
+.admin h1 {
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+}
+
+.admin-header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.admin-login {
+  max-width: 22rem;
+}
+
+.inbox {
+  list-style: none;
+  margin: 1.5rem 0 0;
+  padding: 0;
+}
+
+.inbox-item {
+  padding: 1.5rem 0 1.5rem 1rem;
+  border-top: 1px solid var(--filet);
+  border-left: 3px solid transparent;
+}
+
+.inbox-item-unread {
+  border-left-color: var(--sapin);
+}
+
+.inbox-item h2 {
+  font-size: 1.2rem;
+}
+
+.inbox-text {
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+
+.inbox-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin: 0;
+}
+
+.badge {
+  display: inline-block;
+  margin-left: 0.6rem;
+  padding: 0.05rem 0.45rem;
+  background: var(--stabilo);
+  border-radius: 2px;
+  font-family: var(--sans);
+  font-size: 0.8rem;
+  font-weight: 600;
+  vertical-align: 0.15em;
+}
+
+@media (max-width: 760px) {
+  .intro {
+    padding: 3rem 0 2.5rem;
+  }
+
+  .row {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 1.25rem;
+    padding: 2.25rem 0;
+  }
+
+  .row-label {
+    position: static;
+  }
+
+  .skills > div,
+  .timeline li {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 0.15rem;
+  }
+
+  .case-facts {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}

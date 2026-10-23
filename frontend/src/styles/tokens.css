@@ -1,0 +1,43 @@
+/* Cinq couleurs avec un rôle chacune, plus celles des formulaires. Détail dans docs/design.md. */
+:root {
+  --papier: #f5f6f3;
+  --encre: #1b2430;
+  --crayon: #505a66;
+  --filet: #d5dad4;
+  --sapin: #1d5c47;
+  --sapin-fonce: #154536;
+  --stabilo: #f3e58c;
+
+  --champ: #ffffff;
+  --bord-champ: #7a847d;
+  --code: #e9ece6;
+  --danger: #9b2c2c;
+  --danger-fond: #f8eceb;
+
+  --serif: 'Source Serif 4 Variable', Georgia, 'Times New Roman', serif;
+  --sans: 'Public Sans Variable', 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  --mono: ui-monospace, 'SF Mono', Menlo, Consolas, 'Liberation Mono', monospace;
+
+  --mesure: 68ch;
+  --page: 72rem;
+  --gouttiere: 1.25rem;
+  --colonne-label: 11rem;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --papier: #15191e;
+    --encre: #e4e7e2;
+    --crayon: #a3acb5;
+    --filet: #2c333b;
+    --sapin: #86c9ae;
+    --sapin-fonce: #a7dcc6;
+    --stabilo: #5a5222;
+
+    --champ: #1b2026;
+    --bord-champ: #6b7580;
+    --code: #1e242b;
+    --danger: #f0a3a3;
+    --danger-fond: #2b1c1e;
+  }
+}

@@ -1,0 +1,72 @@
+services:
+  postgres:
+    image: postgres:16-alpine
+    container_name: portfolio-postgres
+    environment:
+      POSTGRES_DB: ${DB_NAME:-portfolio}
+      POSTGRES_USER: ${DB_USER:-portfolio}
+      POSTGRES_PASSWORD: ${DB_PASSWORD:?DB_PASSWORD manquant dans .env}
+    # Aucun port publié : seule l'API parle à la base, sur le réseau interne de Docker.
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${DB_USER:-portfolio} -d ${DB_NAME:-portfolio}"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    mem_limit: 256m
+    security_opt:
+      - no-new-privileges:true
+    restart: unless-stopped
+
+  api:
+    build: ./backend
+    container_name: portfolio-api
+    env_file: .env
+    environment:
+      - DB_HOST=postgres
+      - DB_PORT=5432
+      - SERVER_PORT=8080
+      # Le Pi partage sa mémoire avec d'autres services : tas borné, GC le plus sobre.
+      - JAVA_TOOL_OPTIONS=-Xmx192m -XX:MaxMetaspaceSize=128m -Xss512k -XX:+UseSerialGC
+    # Pas de port publié : l'API n'est joignable que par nginx.
+    depends_on:
+      postgres:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD-SHELL", "wget -qO /dev/null http://localhost:8080/actuator/health/readiness || exit 1"]
+      interval: 15s
+      timeout: 5s
+      retries: 10
+      start_period: 60s
+    mem_limit: 400m
+    read_only: true
+    tmpfs:
+      - /tmp
+    cap_drop:
+      - ALL
+    security_opt:
+      - no-new-privileges:true
+    restart: unless-stopped
+
+  web:
+    build: ./frontend
+    container_name: portfolio-web
+    # Lié à la boucle locale : seul cloudflared, sur la même machine, y accède. Rien n'est exposé au LAN.
+    ports:
+      - "127.0.0.1:${HOST_PORT:-8094}:8080"
+    # Pas d'attente sur l'API : les pages doivent rester en ligne même si elle est arrêtée.
+    depends_on:
+      - api
+    mem_limit: 64m
+    read_only: true
+    tmpfs:
+      - /tmp
+    cap_drop:
+      - ALL
+    security_opt:
+      - no-new-privileges:true
+    restart: unless-stopped
+
+volumes:
+  postgres_data:

@@ -1,0 +1,64 @@
+spring:
+  application:
+    name: portfolio-api
+  datasource:
+    url: jdbc:postgresql://${DB_HOST:localhost}:${DB_PORT:5432}/${DB_NAME:portfolio}
+    username: ${DB_USER:portfolio}
+    password: ${DB_PASSWORD:portfolio}
+    hikari:
+      # Peu de trafic, et le Pi partage sa mémoire avec d'autres services.
+      maximum-pool-size: 5
+  jpa:
+    open-in-view: false
+    hibernate:
+      # Le schéma appartient à Flyway : Hibernate vérifie seulement qu'il correspond aux entités.
+      ddl-auto: validate
+  flyway:
+    enabled: true
+  mvc:
+    problemdetails:
+      enabled: true
+  jackson:
+    default-property-inclusion: non_null
+  threads:
+    virtual:
+      enabled: true
+
+server:
+  port: ${SERVER_PORT:8080}
+  shutdown: graceful
+  # Derrière nginx : on fait confiance à X-Forwarded-Proto pour connaître le schéma réel.
+  forward-headers-strategy: native
+  error:
+    include-stacktrace: never
+    include-message: never
+  tomcat:
+    max-http-form-post-size: 16KB
+    max-swallow-size: 16KB
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health
+  endpoint:
+    health:
+      probes:
+        enabled: true
+      show-details: never
+
+portfolio:
+  admin:
+    username: ${ADMIN_USERNAME:admin}
+    # Empreinte BCrypt. Vide = compte admin désactivé.
+    password-hash: ${ADMIN_PASSWORD_HASH:}
+  contact:
+    # Un humain met plus de 3 secondes à remplir le formulaire ; un robot non.
+    min-fill-time: 3s
+    # Plafond global, pour qu'un robot qui change d'IP ne remplisse pas la base.
+    max-per-day: 50
+    retention: 365d
+  notifications:
+    ntfy-url: ${NTFY_URL:https://ntfy.sh}
+    ntfy-topic: ${NTFY_TOPIC:}
+    admin-url: ${PUBLIC_URL:https://julienhome.com}/admin
