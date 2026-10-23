@@ -313,7 +313,7 @@ export const projects: Project[] = [
         heading: 'Sobre exprès',
         blocks: [
           'Beaucoup de portfolios se ressemblent aujourd’hui : dégradé violet, cartes arrondies, titres centrés, animations à chaque défilement. J’ai voulu l’inverse. Deux polices choisies pour la lecture, une serif pour les titres et une sans-serif pour le texte, auto-hébergées. Cinq couleurs, aucun dégradé, des liens soulignés. Le texte raconte ce qui a raté autant que ce qui a marché.',
-                  'En haut de l’accueil, le Raspberry Pi qui sert le site est dessiné aux proportions de la vraie carte. Ses trois mesures, température, durée depuis le dernier démarrage et charge, sont lues dans /sys et /proc par l’API au moment de la visite. Les projets sans capture montrable ont un schéma dessiné à la main, avec les mêmes couleurs que le reste du site.',
+          'En haut de l’accueil, le Raspberry Pi qui sert le site est dessiné aux proportions de la vraie carte. Ses trois mesures, température, durée depuis le dernier démarrage et charge, sont lues dans /sys et /proc par l’API au moment de la visite. Les projets sans capture montrable ont un schéma dessiné à la main, avec les mêmes couleurs que le reste du site.',
         ],
       },
     ],
