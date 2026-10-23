@@ -20,4 +20,6 @@ Plan suivi et état d'avancement : `PLAN.md`. Direction artistique et liste d'in
 
 Docker Compose sur le Pi : `docker compose up -d --build`. nginx écoute sur `127.0.0.1:8094`, et le
 tunnel Cloudflare (géré depuis le dashboard, service `cloudflared` du Pi) relaie `julienhome.com` et
-`www.julienhome.com` vers `http://localhost:8094` (pas `https://` : nginx ne parle que HTTP).
+`www.julienhome.com` vers `http://127.0.0.1:8094`. Pas `https://` : nginx ne parle que HTTP. Pas
+`localhost` non plus : cloudflared le résout en IPv6 (`[::1]`), alors que nginx n'écoute qu'en IPv4.
+Dans le dashboard : Networking > Tunnels > tunnel du Pi > Routes > Add route > Published application.

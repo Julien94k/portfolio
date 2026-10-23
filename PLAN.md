@@ -119,6 +119,7 @@ Raspberry Pi 5 posé chez moi ») et chaque étude de cas raconte un problème r
 - [x] Push, URL du site renseignée sur le dépôt
 
 ### 9. Mise en ligne
-- [ ] **Action de Julien** : dans le dashboard Cloudflare (Zero Trust → Tunnels → le tunnel du Pi →
-      Public Hostname), ajouter `julienhome.com` → `http://localhost:8094`, et `www.julienhome.com` → idem
+- [ ] **Action de Julien** : dashboard Cloudflare, Networking > Tunnels > tunnel du Pi > Routes > Add route >
+      Published application. `julienhome.com` puis `www.julienhome.com` → `http://127.0.0.1:8094`
+      (pas `localhost` : cloudflared le résout en IPv6, nginx n'écoute qu'en IPv4)
 - [ ] Vérification HTTPS publique, en-têtes, formulaire de contact de bout en bout
